@@ -4,6 +4,8 @@ import Adsense from "../../../../components/Adsense";
 import { faqJsonLd } from "./faqJsonLd";
 import { breadcrumbJsonLd } from "./breadcrumbJsonLd";
 import { sanityClient } from "../../../../lib/sanityClient";
+import SocialShare from "../../../../components/SocialShare";
+import RelatedTools from "../../../../components/RelatedTools";
 
 export const revalidate = 86400; // ISR
 
@@ -89,6 +91,13 @@ export default async function ToolPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(tool)) }}
       />
+
+      <SocialShare 
+        title={`${tool.title} | MyDailyTools`} 
+        url={`https://mydailytools-pi.vercel.app/tools/${tool.slug.current}`} 
+      />
+      
+      <RelatedTools currentSlug={tool.slug.current} />
     </main>
   );
 }

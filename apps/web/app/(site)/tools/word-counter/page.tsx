@@ -2,6 +2,8 @@ import React from "react";
 import { Metadata } from "next";
 import WordCounter from "../../../../components/WordCounter";
 import Adsense from "../../../../components/Adsense";
+import SocialShare from "../../../../components/SocialShare";
+import RelatedTools from "../../../../components/RelatedTools";
 
 export const revalidate = 86400;
 
@@ -54,6 +56,13 @@ export default function WordCounterPage() {
           Your text is never sent to our servers, ensuring your drafts and confidential documents remain private.
         </p>
       </section>
+
+      <SocialShare 
+        title="Free Online Word Counter – Text Analysis Tool | MyDailyTools" 
+        url="https://mydailytools-pi.vercel.app/tools/word-counter" 
+      />
+      
+      <RelatedTools currentSlug="word-counter" />
     </main>
   );
 }

@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import SIPCalculator from "../../../../components/SIPCalculator";
 import Adsense from "../../../../components/Adsense";
 import FAQSchema from "../../../../components/FAQSchema";
+import SocialShare from "../../../../components/SocialShare";
+import RelatedTools from "../../../../components/RelatedTools";
 
 export const revalidate = 86400;
 
@@ -67,6 +69,13 @@ export default function SIPCalculatorPage() {
           When you invest through an SIP, your money grows exponentially over time. 
         </p>
       </section>
+
+      <SocialShare 
+        title="SIP Calculator – Plan Your Mutual Fund Investments | MyDailyTools" 
+        url="https://mydailytools-pi.vercel.app/tools/sip-calculator" 
+      />
+      
+      <RelatedTools currentSlug="sip-calculator" />
     </main>
   );
 }

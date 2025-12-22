@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import GSTCalculator from "../../../../components/GSTCalculator";
 import Adsense from "../../../../components/Adsense";
 import FAQSchema from "../../../../components/FAQSchema";
+import SocialShare from "../../../../components/SocialShare";
+import RelatedTools from "../../../../components/RelatedTools";
 
 export const revalidate = 86400;
 
@@ -77,6 +79,13 @@ export default function GSTCalculatorPage() {
           Manual math can lead to errors, especially when dealing with complex decimal points in reverse calculations. 
         </p>
       </section>
+
+      <SocialShare 
+        title="Online GST Calculator – Inclusive & Exclusive | MyDailyTools" 
+        url="https://mydailytools-pi.vercel.app/tools/gst-calculator" 
+      />
+      
+      <RelatedTools currentSlug="gst-calculator" />
     </main>
   );
 }

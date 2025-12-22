@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import AgeCalculator from "../../../../components/AgeCalculator";
 import Adsense from "../../../../components/Adsense";
 import FAQSchema from "../../../../components/FAQSchema";
+import SocialShare from "../../../../components/SocialShare";
+import RelatedTools from "../../../../components/RelatedTools";
 
 export const revalidate = 86400;
 
@@ -67,6 +69,13 @@ export default function AgeCalculatorPage() {
           However, your biological age can be much younger or older depending on your lifestyle. 
         </p>
       </section>
+
+      <SocialShare 
+        title="Age Calculator & Longevity Predictor | MyDailyTools" 
+        url="https://mydailytools-pi.vercel.app/tools/age-calculator" 
+      />
+      
+      <RelatedTools currentSlug="age-calculator" />
     </main>
   );
 }

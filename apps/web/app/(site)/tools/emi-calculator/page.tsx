@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import EMICalculator from "../../../../components/EMICalculator";
 import Adsense from "../../../../components/Adsense";
 import FAQSchema from "../../../../components/FAQSchema";
+import SocialShare from "../../../../components/SocialShare";
+import RelatedTools from "../../../../components/RelatedTools";
 
 export const revalidate = 86400;
 
@@ -69,6 +71,13 @@ export default function EmiPage() {
           ))}
         </div>
       </section>
+
+      <SocialShare 
+        title="EMI Calculator India – Loans & Interest | MyDailyTools" 
+        url="https://mydailytools-pi.vercel.app/tools/emi-calculator" 
+      />
+      
+      <RelatedTools currentSlug="emi-calculator" />
     </main>
   );
 }
