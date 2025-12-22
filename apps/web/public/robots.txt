@@ -1,3 +1,9 @@
+# *
 User-agent: *
-Disallow:
-Sitemap: https://example.com/sitemap.xml
+Allow: /
+
+# Host
+Host: https://mydailytools-pi.vercel.app/
+
+# Sitemaps
+Sitemap: https://mydailytools-pi.vercel.app/sitemap.xml

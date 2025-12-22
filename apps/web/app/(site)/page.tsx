@@ -1,14 +1,16 @@
 import Link from "next/link";
-import Seo from "../../components/Seo";
 import { toolsSlugs } from "./tools/slugRoutes";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Free Online Tools – Word Counter, Calculators & Privacy | MyDailyTools",
+  description: "Fast, secure, and India-focused utility tools. Calculate EMI, count words, generate slugs, and more with our free online tools.",
+  keywords: ["free online tools", "daily utility tools", "text tools", "financial calculators India"],
+};
 
 export default function Home() {
   return (
     <main>
-      <Seo
-        title="Free Online Tools — Word Counter, Calculators, India"
-        description="Free text tools and India-focused calculators with SEO-first content."
-      />
       <section className="mb-12 py-10">
         <div className="max-w-2xl">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight leading-tight">

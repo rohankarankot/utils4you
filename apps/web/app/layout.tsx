@@ -4,6 +4,19 @@ import "./globals.css";
 import Layout from "../components/Layout";
 
 export const metadata = {
+  metadataBase: new URL("https://mydailytools-pi.vercel.app/"),
+  title: {
+    default: "MyDailyTools – Free Online Utility Tools & Calculators",
+    template: "%s | MyDailyTools",
+  },
+  description: "Fast, accessible, and high-performance online utility tools for Indian users. Calculators, text tools, and more.",
+  keywords: ["online tools", "EMI calculator", "SIP calculator", "GST calculator", "age calculator", "text processing"],
+  verification: {
+    google: "ZU9HnTgzLCfpRJSYlE6hx8g-X9IwEq93c-zW42Fn7t0",
+  },
+  alternates: {
+    canonical: "./",
+  },
   other: {
     "google-adsense-account": "ca-pub-4316956546209623",
   },
