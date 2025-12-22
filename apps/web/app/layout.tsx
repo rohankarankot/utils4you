@@ -1,9 +1,12 @@
 import React from "react";
+import Script from "next/script";
 import "./globals.css";
 import Layout from "../components/Layout";
 
 export const metadata = {
-  // site-level metadata available to the App Router
+  other: {
+    "google-adsense-account": "ca-pub-4316956546209623",
+  },
 };
 
 export const viewport = {
@@ -18,7 +21,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="antialiased">
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4316956546209623"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        {children}
+      </body>
     </html>
   );
 }
