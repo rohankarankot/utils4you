@@ -1,0 +1,2 @@
+# AdSense placeholder
+google.com, DATA-ADSENSE-PUBLISHER, DIRECT, f08c47fec0942fa0
