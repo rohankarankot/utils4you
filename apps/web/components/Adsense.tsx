@@ -9,7 +9,7 @@ declare global {
 }
 
 export default function Adsense({
-  slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT,
+  slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT|| "8795533518",
   client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT,
   className = "",
   style = { display: "block" },

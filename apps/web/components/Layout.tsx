@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="sticky top-28 space-y-6">
               <div className="card bg-indigo-50/30 border-indigo-100/50 dark:bg-indigo-950/10 dark:border-indigo-900/20">
                 <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">Featured</p>
-                <Adsense className="mb-2" />
+                <Adsense className="mb-2" slot="9725471808" />
                 <p className="text-sm text-[var(--muted)] leading-relaxed">
                   Fast, accessible, and India-focused utilities.
                 </p>
@@ -63,7 +63,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Sticky mobile bottom ad */}
       <div className="fixed bottom-0 left-0 right-0 lg:hidden z-40">
         <div className="max-w-6xl mx-auto p-2">
-          <Adsense />
+          <Adsense  slot="4473145127" responsive="true" />
         </div>
       </div>
     </div>
