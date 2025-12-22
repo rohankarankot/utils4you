@@ -31,7 +31,7 @@ export default function WordCounterPage() {
         <p>
           Whether you are writing an essay, a blog post, or a social media update, maintaining the right word count is essential. 
           Our tool provides real-time character and word counts so you never have to guess. 
-          Beyond simple counting, MyDailyTools provides structural insights like sentence and paragraph counts to help you improve readability.
+          Beyond simple counting, OmniTools provides structural insights like sentence and paragraph counts to help you improve readability.
         </p>
 
         <h3 className="text-xl font-semibold mt-6 mb-3">Optimize for SEO and Social Media</h3>
@@ -58,7 +58,7 @@ export default function WordCounterPage() {
       </section>
 
       <SocialShare 
-        title="Free Online Word Counter – Text Analysis Tool | MyDailyTools" 
+        title="Free Online Word Counter – Text Analysis Tool | OmniTools" 
         url="https://mydailytools-pi.vercel.app/tools/word-counter" 
       />
       

@@ -91,6 +91,16 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
+        <div className="bg-slate-50 dark:bg-slate-900/40 rounded-3xl p-8 md:p-12 text-center">
+          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <p className="text-lg text-[var(--muted)] mb-6">
+            Have questions, feedback, or a tool request? We'd love to hear from you.
+          </p>
+          <a href="mailto:support@mydailytools.com" className="text-2xl font-bold text-blue-600 hover:text-blue-700 underline decoration-blue-200 underline-offset-8">
+            support@mydailytools.com
+          </a>
+        </div>
       </section>
 
       <footer className="text-center bg-slate-900 dark:bg-blue-600 rounded-3xl p-12 text-white overflow-hidden relative">

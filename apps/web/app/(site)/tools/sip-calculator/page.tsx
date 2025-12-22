@@ -71,7 +71,7 @@ export default function SIPCalculatorPage() {
       </section>
 
       <SocialShare 
-        title="SIP Calculator – Plan Your Mutual Fund Investments | MyDailyTools" 
+        title="SIP Calculator Online – Investment Returns | OmniTools" 
         url="https://mydailytools-pi.vercel.app/tools/sip-calculator" 
       />
       

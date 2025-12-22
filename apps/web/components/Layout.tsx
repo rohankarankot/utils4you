@@ -75,8 +75,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/privacy-policy" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Privacy</Link>
             <Link href="/terms-and-conditions" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Terms</Link>
           </div>
-          <p className="text-sm text-[var(--muted)]">
-            © {new Date().getFullYear()} OmniTools. Made for efficiency.
+          <p className="text-sm text-[var(--muted)] mb-2">
+            © {new Date().getFullYear()} OmniTools.
+          </p>
+          <p className="text-xs text-[var(--muted)]">
+            Contact: <a href="mailto:support@mydailytools.com" className="hover:text-[var(--primary)]">support@mydailytools.com</a>
           </p>
         </div>
       </footer>

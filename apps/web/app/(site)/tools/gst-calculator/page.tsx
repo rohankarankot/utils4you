@@ -75,13 +75,13 @@ export default function GSTCalculatorPage() {
 
         <h3 className="text-xl font-semibold mt-6 mb-3">Benefits of Using Our Online GST Tool</h3>
         <p>
-          Using an automated tool like MyDailyTools ensures accuracy and saves significant time compared to manual calculations. 
+          Using an automated tool like OmniTools ensures accuracy and saves significant time compared to manual calculations. 
           Manual math can lead to errors, especially when dealing with complex decimal points in reverse calculations. 
         </p>
       </section>
 
       <SocialShare 
-        title="Online GST Calculator – Inclusive & Exclusive | MyDailyTools" 
+        title="GST Calculator India – Instant Tax Calculation | OmniTools" 
         url="https://mydailytools-pi.vercel.app/tools/gst-calculator" 
       />
       

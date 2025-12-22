@@ -49,7 +49,7 @@ export default function AgeCalculatorPage() {
       <section className="mt-12 prose dark:prose-invert max-w-none">
         <h2 className="text-2xl font-bold mb-4">More Than Just a Birthday Counter</h2>
         <p>
-          While most age calculators just tell you how many years have passed since your birth, MyDailyTools provides a deeper look. 
+          While most age calculators just tell you how many years have passed since your birth, OmniTools provides a deeper look. 
           Our tool calculates your age in years, months, days, and even displays a real-time counter in seconds. 
         </p>
 
@@ -71,7 +71,7 @@ export default function AgeCalculatorPage() {
       </section>
 
       <SocialShare 
-        title="Age Calculator & Longevity Predictor | MyDailyTools" 
+        title="Age Calculator Online – Calculate Exact Age | OmniTools" 
         url="https://mydailytools-pi.vercel.app/tools/age-calculator" 
       />
       

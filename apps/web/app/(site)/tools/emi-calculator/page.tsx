@@ -73,7 +73,7 @@ export default function EmiPage() {
       </section>
 
       <SocialShare 
-        title="EMI Calculator India – Loans & Interest | MyDailyTools" 
+        title="EMI Calculator India – Calculate Loan EMIs | OmniTools" 
         url="https://mydailytools-pi.vercel.app/tools/emi-calculator" 
       />
       
