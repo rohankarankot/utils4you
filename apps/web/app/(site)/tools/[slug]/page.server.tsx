@@ -3,7 +3,7 @@ import Seo from "../../../../components/Seo";
 import Adsense from "../../../../components/Adsense";
 import { faqJsonLd } from "./faqJsonLd";
 import { breadcrumbJsonLd } from "./breadcrumbJsonLd";
-import { sanityClient } from "../../../lib/sanityClient";
+import { sanityClient } from "../../../../lib/sanityClient";
 
 export const revalidate = 86400; // ISR
 
