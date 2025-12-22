@@ -13,13 +13,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-8">
               <Link
                 href="/"
-                aria-label="Home"
+                aria-label="OmniTools Home"
                 className="text-2xl font-black text-gradient tracking-tight"
               >
-                TOOLS
+                OmniTools
               </Link>
               <Link href="/tools" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
                 All Tools
+              </Link>
+              <Link href="/about" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
+                About
               </Link>
             </div>
             <div className="flex items-center gap-6">
@@ -55,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">Featured</p>
                 <Adsense className="mb-2" slot="9725471808" />
                 <p className="text-sm text-[var(--muted)] leading-relaxed">
-                  Fast, accessible, and India-focused utilities.
+                  Fast, accessible, and India-focused utilities by OmniTools.
                 </p>
               </div>
             </div>
@@ -65,8 +68,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <footer className="mt-auto py-12 border-t border-[var(--surface-border)]">
         <div className="max-w-6xl mx-auto px-4 text-center">
+          <div className="flex justify-center gap-6 mb-4">
+            <Link href="/" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Home</Link>
+            <Link href="/tools" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Tools</Link>
+            <Link href="/about" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">About Us</Link>
+            <Link href="/privacy-policy" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Privacy</Link>
+            <Link href="/terms-and-conditions" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Terms</Link>
+          </div>
           <p className="text-sm text-[var(--muted)]">
-            © {new Date().getFullYear()} Tools. Made for efficiency.
+            © {new Date().getFullYear()} OmniTools. Made for efficiency.
           </p>
         </div>
       </footer>

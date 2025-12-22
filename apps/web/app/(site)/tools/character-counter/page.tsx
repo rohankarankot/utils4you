@@ -6,9 +6,9 @@ import Adsense from "../../../../components/Adsense";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Online Character Counter – Accurate Text Length Tool | MyDailyTools",
-  description: "Count characters and bytes with or without spaces. Free tool for social media limits, SEO meta descriptions, and developer data-size checks.",
-  keywords: ["character counter", "count characters online", "text length checker", "byte counter", "social media character limit"],
+  title: "Character Counter – Instant Letter & Character Count | OmniTools",
+  description: "Count characters, letters, and spaces in real-time. perfect for social media limits and SEO. Secure browser-based counting by OmniTools.",
+  keywords: ["character counter", "letter count", "count characters", "OmniTools utility", "text analysis"],
 };
 
 export default function CharacterCounterPage() {

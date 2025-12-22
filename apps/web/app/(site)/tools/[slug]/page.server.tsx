@@ -93,7 +93,7 @@ export default async function ToolPage({
       />
 
       <SocialShare 
-        title={`${tool.title} | MyDailyTools`} 
+        title={`${tool.title} | OmniTools`} 
         url={`https://mydailytools-pi.vercel.app/tools/${tool.slug.current}`} 
       />
       

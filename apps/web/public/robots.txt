@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://mydailytools-pi.vercel.app/
+Host: mydailytools-pi.vercel.app
 
 # Sitemaps
-Sitemap: https://mydailytools-pi.vercel.app/sitemap.xml
+Sitemap: mydailytools-pi.vercel.app/sitemap.xml

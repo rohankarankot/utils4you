@@ -9,9 +9,9 @@ import RelatedTools from "../../../../components/RelatedTools";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "SIP Calculator – Systematic Investment Plan Returns Calculator | MyDailyTools",
-  description: "Calculate your future mutual fund returns with our free SIP calculator. Plan your financial goals by estimating the power of compounding on monthly investments.",
-  keywords: ["SIP calculator", "mutual fund calculator", "investment calculator", "wealth calculator India", "SIP returns calculator"],
+  title: "SIP Calculator Online – Investment Returns | OmniTools",
+  description: "Calculate your future wealth with our SIP calculator. Project mutual fund returns based on monthly contributions and expected ROI. Secure data via OmniTools.",
+  keywords: ["SIP calculator", "mutual fund returns", "wealth builder", "OmniTools SIP", "investment calculator India"],
 };
 
 const faqs = [

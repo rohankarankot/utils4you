@@ -38,7 +38,7 @@ export default function SocialShare({ title, url }: { title: string; url: string
     <div className="flex flex-col gap-4 py-8 border-y border-slate-100 dark:border-slate-800 my-8">
       <div className="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-lg">
         <Share2 size={20} className="text-blue-600" />
-        <span>Tell your friends about MyDailyTools!</span>
+        <span>Tell your friends about OmniTools!</span>
       </div>
       <div className="flex flex-wrap gap-2">
         {shareLinks.map((link) => (

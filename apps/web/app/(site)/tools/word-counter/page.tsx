@@ -8,9 +8,9 @@ import RelatedTools from "../../../../components/RelatedTools";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Free Online Word Counter – Instant Text Analysis Tool | MyDailyTools",
-  description: "Count words, characters, sentences, and paragraphs instantly with our free online word counter. Get reading time estimates and keyword density analysis for SEO.",
-  keywords: ["word counter", "word count tool", "character counter", "essay word counter", "online word counter free"],
+  title: "Word Counter Online – Real-time Character & Keyword Count | OmniTools",
+  description: "Count words, characters, and sentences in real-time. Analyze keyword density and reading time. Secure browser-based processing by OmniTools.",
+  keywords: ["word counter", "character count", "writing tools", "keyword density", "OmniTools text tools"],
 };
 
 export default function WordCounterPage() {

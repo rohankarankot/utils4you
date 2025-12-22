@@ -3,9 +3,9 @@ import { toolsSlugs } from "./tools/slugRoutes";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Online Tools – Word Counter, Calculators & Privacy | MyDailyTools",
-  description: "Fast, secure, and India-focused utility tools. Calculate EMI, count words, generate slugs, and more with our free online tools.",
-  keywords: ["free online tools", "daily utility tools", "text tools", "financial calculators India"],
+  title: "OmniTools – Free Online Tools for Daily Productivity",
+  description: "Experience the power of OmniTools. Fast, secure, and private online tools for text processing, financial calculations, and professional utility.",
+  keywords: ["OmniTools", "free online tools", "best utility tools", "text tools", "financial calculators India"],
 };
 
 export default function Home() {
@@ -21,6 +21,16 @@ export default function Home() {
             and financial calculations at your fingertips.
           </p>
         </div>
+      </section>
+
+      <section className="mt-20 prose dark:prose-invert max-w-none border-t border-slate-100 dark:border-slate-800 pt-12">
+        <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Why Professionals Choose OmniTools</h2>
+        <p className="text-lg leading-relaxed text-[var(--muted)]">
+          OmniTools is designed for those who value speed and privacy. Our platform provides a curated collection 
+          of essential utilities that run entirely in your browser. This means your data never touches our 
+          servers, giving you 100% security for your financial and text-based tasks. Whether you are 
+          calculating complex loan EMIs or optimizing text for SEO, OmniTools is your reliable daily partner.
+        </p>
       </section>
 
       <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">

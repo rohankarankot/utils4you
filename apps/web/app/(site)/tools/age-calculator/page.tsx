@@ -9,9 +9,9 @@ import RelatedTools from "../../../../components/RelatedTools";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Age Calculator & Life Expectancy Predictor | MyDailyTools",
-  description: "Calculate your exact age in years, months, and days. Use our life span predictor to estimate your longevity based on lifestyle factors like diet and exercise.",
-  keywords: ["age calculator", "calculate age online", "life expectancy predictor", "how long will I live", "chronological age calculator"],
+  title: "Age Calculator Online – Calculate Exact Age | OmniTools",
+  description: "Easily find your exact age in years, months, and days. Perfect for forms and birthdays. Fast, private, and precise age counting by OmniTools.",
+  keywords: ["age calculator", "calculate age", "how old am I", "OmniTools", "date of birth calculator"],
 };
 
 const faqs = [

@@ -9,9 +9,9 @@ import RelatedTools from "../../../../components/RelatedTools";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Online GST Calculator – Inclusive & Exclusive Tax Calculator | MyDailyTools",
-  description: "Free online GST calculator for Indian businesses. Calculate GST inclusive and exclusive prices with precise tax slabs (5%, 12%, 18%, 28%) instantly.",
-  keywords: ["GST calculator", "online GST calculator", "GST inclusive calculator", "GST exclusive calculator", "GST calculator India"],
+  title: "GST Calculator India – Instant Tax Calculation | OmniTools",
+  description: "Accurately calculate GST for your business. Supports 5%, 12%, 18%, and 28% tax slabs. Fast, free, and private GST tool by OmniTools.",
+  keywords: ["GST calculator", "GST India", "tax calculator", "OmniTools GST", "inclusive GST", "exclusive GST"],
 };
 
 const faqs = [

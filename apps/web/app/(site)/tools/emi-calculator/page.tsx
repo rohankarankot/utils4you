@@ -9,9 +9,9 @@ import RelatedTools from "../../../../components/RelatedTools";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "EMI Calculator India – Precise Loan & Interest Calculator | MyDailyTools",
-  description: "Calculate accurate EMI for Car, Personal, and Education loans with our India-focused EMI calculator. View total interest and payment breakups instantly.",
-  keywords: ["EMI calculator", "loan calculator India", "personal loan EMI", "car loan EMI", "home loan calculator"],
+  title: "EMI Calculator India – Calculate Loan EMIs | OmniTools",
+  description: "Free online EMI calculator for Home, Car, and Personal loans in India. Plan your monthly payments with OmniTools' private and fast calculator.",
+  keywords: ["EMI calculator", "loan calculator", "home loan EMI", "OmniTools", "India loan calculator"],
 };
 
 const faqs = [

@@ -6,9 +6,9 @@ import Adsense from "../../../../components/Adsense";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Online Slug Generator – Create SEO Friendly URLs | MyDailyTools",
-  description: "Generate clean, URL-friendly slugs from any text. Automatically remove special characters, handle accents, and format strings for perfect website permalinks.",
-  keywords: ["slug generator", "URL slug generator", "SEO friendly URL", "text to slug", "permalink generator"],
+  title: "URL Slug Generator – Create SEO Friendly URLs | OmniTools",
+  description: "Transform your titles into clean, SEO-friendly URL slugs instantly. Free, fast, and private URL optimization tool by OmniTools.",
+  keywords: ["slug generator", "URL slugger", "SEO friendly URL", "OmniTools SEO", "clean URL creator"],
 };
 
 export default function SlugGeneratorPage() {

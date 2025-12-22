@@ -6,9 +6,9 @@ import Adsense from "../../../../components/Adsense";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Online Case Converter – Uppercase, Lowercase & Title Case | MyDailyTools",
-  description: "Convert text to uppercase, lowercase, title case, or sentence case instantly. Free online case conversion tool for writers, students, and developers.",
-  keywords: ["case converter", "convert to uppercase", "title case generator", "lowercase converter", "text formatter"],
+  title: "Case Converter Online – Uppercase, Lowercase & More | OmniTools",
+  description: "Easily convert text between different cases: uppercase, lowercase, sentence case, and more. Fast, free, and secure text tool by OmniTools.",
+  keywords: ["case converter", "text converter", "uppercase to lowercase", "sentence case", "OmniTools text tools"],
 };
 
 export default function CaseConverterPage() {
