@@ -84,12 +84,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </footer>
 
-      {/* Sticky mobile bottom ad */}
-      <div className="fixed bottom-0 left-0 right-0 lg:hidden z-40">
-        <div className="max-w-6xl mx-auto p-2">
-          <Adsense  slot="4473145127" responsive="true" />
-        </div>
-      </div>
+     
     </div>
   );
 }
