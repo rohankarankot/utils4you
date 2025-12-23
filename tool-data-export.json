@@ -1,0 +1,283 @@
+{
+    "emi-calculator": {
+        "title": "EMI Calculator India – Calculate Loan EMIs | OmniTools",
+        "description": "Free online EMI calculator for Home, Car, and Personal loans in India. Plan your monthly payments with OmniTools' private and fast calculator.",
+        "keywords": [
+            "EMI calculator",
+            "loan calculator",
+            "home loan EMI",
+            "OmniTools",
+            "India loan calculator"
+        ],
+        "heroTitle": "India EMI Calculator – Personal, Car & Education Loans",
+        "heroSubtitle": "Calculate your monthly loan payments instantly. Get a clear breakdown of principal vs interest to make smarter financial decisions.",
+        "faqs": [
+            {
+                "question": "How is EMI calculated?",
+                "answer": "EMI is calculated using the formula: [P x R x (1+R)^N]/[(1+R)^N-1], where P is Principal loan amount, R is rate of interest per month, and N is number of monthly installments."
+            },
+            {
+                "question": "What is a good EMI-to-income ratio?",
+                "answer": "Generally, lenders recommend keeping your total EMIs below 40-50% of your net monthly income for financial stability."
+            },
+            {
+                "question": "Does reducing the tenure decrease total interest?",
+                "answer": "Yes, choosing a shorter tenure increases your monthly EMI but significantly reduces the total interest paid over the life of the loan."
+            },
+            {
+                "question": "Can I use this for home loans in India?",
+                "answer": "Absolutely. While specifically tuned for personal, car, and education loans, it works perfectly for home loans as well. Simply input your principal, fixed interest rate, and tenure."
+            }
+        ]
+    },
+    "sip-calculator": {
+        "title": "SIP Calculator Online – Investment Returns | OmniTools",
+        "description": "Calculate your future wealth with our SIP calculator. Project mutual fund returns based on monthly contributions and expected ROI. Secure data via OmniTools.",
+        "keywords": [
+            "SIP calculator",
+            "mutual fund returns",
+            "wealth builder",
+            "OmniTools SIP",
+            "investment calculator India"
+        ],
+        "heroTitle": "SIP Calculator – Plan Your Mutual Fund Investments",
+        "heroSubtitle": "Estimate the future value of your monthly SIP investments based on expected annual returns and tenure.",
+        "faqs": [
+            {
+                "question": "How does an SIP calculator work?",
+                "answer": "An SIP calculator uses a compounding interest formula. It takes your monthly investment, estimated return rate, and tenure to calculate the total matured amount at the end of the period."
+            },
+            {
+                "question": "Is SIP better than a lump sum investment?",
+                "answer": "SIP is generally considered better for long-term investors as it averages out the cost of purchase (rupee cost averaging) and reduces the risk of timing the market incorrectly."
+            },
+            {
+                "question": "What is the minimum amount for an SIP?",
+                "answer": "In India, several mutual funds allow you to start an SIP with as little as ₹100 to ₹500 per month."
+            },
+            {
+                "question": "Are SIP returns taxable in India?",
+                "answer": "Yes, returns are subject to Capital Gains Tax. Short-term or long-term tax rates apply depending on the type of mutual fund (equity or debt) and the holding period."
+            }
+        ]
+    },
+    "gst-calculator": {
+        "title": "GST Calculator India – Instant Tax Calculation | OmniTools",
+        "description": "Accurately calculate GST for your business. Supports 5%, 12%, 18%, and 28% tax slabs. Fast, free, and private GST tool by OmniTools.",
+        "keywords": [
+            "GST calculator",
+            "GST India",
+            "tax calculator",
+            "OmniTools GST",
+            "inclusive GST",
+            "exclusive GST"
+        ],
+        "heroTitle": "Online GST Calculator",
+        "heroSubtitle": "Calculate Goods and Services Tax (GST) for any product or service with ease. Determine GST inclusive and exclusive amounts in seconds.",
+        "faqs": [
+            {
+                "question": "What are the common GST slabs in India?",
+                "answer": "The primary GST slabs in India are 5%, 12%, 18%, and 28%. Most essential items fall under lower slabs, while luxury goods are in the 28% bracket."
+            },
+            {
+                "question": "How do I calculate GST inclusive price?",
+                "answer": "To find the GST inside a total amount, use the formula: [Total Price - (Total Price / (1 + GST rate/100))]. Our calculator does this automatically when you select 'GST Inclusive'."
+            },
+            {
+                "question": "What is CGST, SGST, and IGST?",
+                "answer": "CGST and SGST are applied for intra-state transactions (within the same state), while IGST is applied for inter-state transactions (between two different states)."
+            },
+            {
+                "question": "Can I claim Input Tax Credit (ITC) using these calculations?",
+                "answer": "Yes, knowing the exact GST paid as calculated by this tool helps you maintain accurate records for claiming Input Tax Credit during your GST returns filing."
+            }
+        ]
+    },
+    "character-counter": {
+        "title": "Character Counter – Instant Letter & Character Count | OmniTools",
+        "description": "Count characters, letters, and spaces in real-time. perfect for social media limits and SEO. Secure browser-based counting by OmniTools.",
+        "keywords": [
+            "character counter",
+            "letter count",
+            "count characters",
+            "OmniTools utility",
+            "text analysis"
+        ],
+        "heroTitle": "Accurate Character & Byte Counter",
+        "heroSubtitle": "Check the exact length of your text. Perfect for social media posts, Meta tags, and technical byte-limit requirements.",
+        "faqs": [
+            {
+                "question": "Does this tool store my text?",
+                "answer": "No. All counting is done locally in your browser. Your text is never sent to our servers, ensuring 100% privacy."
+            },
+            {
+                "question": "What is the difference between characters and bytes?",
+                "answer": "A standard character is usually 1 byte, but emojis and special symbols can take up to 4 bytes. We show both for technical accuracy."
+            }
+        ]
+    },
+    "word-counter": {
+        "title": "Word Counter Online – Real-time Word & Sentence Count | OmniTools",
+        "description": "Quickly count words, sentences, and paragraphs in your text. Ideal for writers, students, and SEO professionals. Fast and secure by OmniTools.",
+        "keywords": [
+            "word counter",
+            "word count",
+            "count words",
+            "sentence counter",
+            "writing tools"
+        ],
+        "heroTitle": "Free Online Word Counter",
+        "heroSubtitle": "Get instant statistics for your writing. Count words, sentences, paragraphs, and reading time in real-time.",
+        "faqs": [
+            {
+                "question": "How do you define a word?",
+                "answer": "A word is defined as any sequence of characters separated by whitespace. Our algorithm filters out extra spaces to give an accurate count."
+            },
+            {
+                "question": "Is there a limit to how much text I can paste?",
+                "answer": "No, you can paste large manuscripts or articles. Since processing is local, speed depends on your device's performance."
+            }
+        ]
+    },
+    "slug-generator": {
+        "title": "URL Slug Generator – Create SEO Friendly URLs | OmniTools",
+        "description": "Transform your titles into clean, SEO-friendly URL slugs instantly. Free, fast, and private URL optimization tool by OmniTools.",
+        "keywords": [
+            "slug generator",
+            "URL slugger",
+            "SEO friendly URL",
+            "OmniTools SEO",
+            "clean URL creator"
+        ],
+        "heroTitle": "Clean SEO Slug Generator",
+        "heroSubtitle": "Turn complex titles into clean, URL-friendly slugs instantly. Optimize your website permalinks for users and search engines.",
+        "faqs": [
+            {
+                "question": "What makes a good URL slug?",
+                "answer": "A good slug is short, descriptive, lowercase, and uses hyphens to separate words. It should contain your primary keywords."
+            },
+            {
+                "question": "Does it handle special characters?",
+                "answer": "Yes, our tool automatically removes punctuation and converts accented characters (e.g., 'é' to 'e') to ensure web compatibility."
+            }
+        ]
+    },
+    "case-converter": {
+        "title": "Case Converter – Change Text Case Online | OmniTools",
+        "description": "Easily convert text to UPPERCASE, lowercase, Title Case, or Sentence case. Save time on formatting with our free online utility.",
+        "keywords": [
+            "case converter",
+            "uppercase to lowercase",
+            "title case generator",
+            "text formatting tool"
+        ],
+        "heroTitle": "Online Text Case Converter",
+        "heroSubtitle": "Format your text instantly. Switch between different letter cases with a single click.",
+        "faqs": [
+            {
+                "question": "How does Title Case work?",
+                "answer": "Title Case capitalizes the first letter of every word while keeping the rest lowercase, making it perfect for headings and book titles."
+            }
+        ]
+    },
+    "age-calculator": {
+        "title": "Age Calculator – Exact Age in Years, Months, Days | OmniTools",
+        "description": "Find your exact age instantly. Calculate the time elapsed between two dates in years, months, and days. Accurate and free by OmniTools.",
+        "keywords": [
+            "age calculator",
+            "calculate age",
+            "how old am I",
+            "date difference calculator"
+        ],
+        "heroTitle": "Find Your Exact Age",
+        "heroSubtitle": "Calculate your age down to the day. Useful for school admissions, insurance forms, or just for fun.",
+        "faqs": [
+            {
+                "question": "Can I calculate the age between any two dates?",
+                "answer": "Yes, you can set both the 'Date of Birth' and the 'Age at Date' to find the difference between any two points in time."
+            }
+        ]
+    },
+    "bmi-calculator": {
+        "title": "BMI Calculator – Body Mass Index Official | OmniTools",
+        "description": "Calculate your BMI and see your weight category. Scientific Body Mass Index calculator for adults. Private and easy to use.",
+        "keywords": [
+            "BMI calculator",
+            "body mass index",
+            "health calculator",
+            "weight category"
+        ],
+        "heroTitle": "Body Mass Index (BMI) Calculator",
+        "heroSubtitle": "Check if you are at a healthy weight relative to your height. BMI is a useful screening tool for health status.",
+        "faqs": [
+            {
+                "question": "What is a healthy BMI range?",
+                "answer": "For most adults, a healthy BMI range is between 18.5 and 24.9. Below 18.5 is underweight, and above 25 is considered overweight."
+            }
+        ]
+    },
+    "remove-extra-spaces": {
+        "title": "Remove Extra Spaces – Clean Text Online | OmniTools",
+        "description": "Instantly remove double spaces, trailing spaces, and extra whitespace from your text. Clean up your documents for professional use.",
+        "keywords": [
+            "remove double spaces",
+            "clean whitespace",
+            "text cleaner",
+            "format text"
+        ],
+        "heroTitle": "Whitespace & Double Space Remover",
+        "heroSubtitle": "Clean up messy text by removing unnecessary spaces. Perfect for formatting code, emails, or articles.",
+        "faqs": [
+            {
+                "question": "Does this tool remove line breaks?",
+                "answer": "By default, it collapses multiple spaces into one space while preserving your paragraph breaks unless you specifically use the collapse lines option."
+            }
+        ]
+    },
+    "html-minify": {
+        "title": "HTML Minifier – Compress HTML Code Online | OmniTools",
+        "description": "Free online HTML minifier. Compress your HTML code instantly to improve website performance and SEO. Secure and fast utility by OmniTools.",
+        "keywords": [
+            "html minifier",
+            "compress html",
+            "minify html online",
+            "website speed optimization",
+            "html compressor"
+        ],
+        "heroTitle": "Professional HTML Minifier",
+        "heroSubtitle": "Reduce your website's file size by up to 20% by removing unnecessary whitespace, comments, and gaps in your HTML code.",
+        "faqs": [
+            {
+                "question": "How does HTML minification improve SEO?",
+                "answer": "Minification reduces the total byte size of your webpage, leading to faster load times. Page speed is a critical ranking factor for Google and other search engines."
+            },
+            {
+                "question": "Is it safe to use this tool for production code?",
+                "answer": "Yes. Our tool removes only non-functional characters like comments and extra spaces. It preserves the structure and logic of your HTML tags."
+            }
+        ]
+    },
+    "json-formatter": {
+        "title": "JSON Formatter – Pretty Print & Validate JSON Online | OmniTools",
+        "description": "Free online JSON formatter and validator. Pretty print, minify, and explore your JSON data with an interactive tree view. Fast and secure by OmniTools.",
+        "keywords": [
+            "json formatter",
+            "json validator",
+            "pretty print json",
+            "json explorer",
+            "minify json"
+        ],
+        "heroTitle": "Interactive JSON Formatter",
+        "heroSubtitle": "Clean up, validate, and explore complex JSON structures with our interactive beauty printer. Perfect for developers and data analysts.",
+        "faqs": [
+            {
+                "question": "Is my JSON data kept private?",
+                "answer": "Yes. All parsing and formatting happen entirely in your browser. Your data is never uploaded to any server."
+            },
+            {
+                "question": "Can it handle large JSON files?",
+                "answer": "Yes, our interactive explorer is optimized to handle large structures efficiently. You can expand and collapse sections to navigate easily."
+            }
+        ]
+    }
+}
