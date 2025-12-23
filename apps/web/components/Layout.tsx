@@ -2,8 +2,19 @@ import React from "react";
 import Link from "next/link";
 import Adsense from "./Adsense";
 import ThemeToggle from "./ThemeToggle";
+import { sanityClient } from "../lib/sanityClient";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+async function getQuickNav() {
+  const query = `*[_type == "tool"] | order(_createdAt desc)[0...5] {
+    title,
+    "slug": slug.current
+  }`;
+  return await sanityClient.fetch(query);
+}
+
+export default async function Layout({ children }: { children: React.ReactNode }) {
+  const quickLinks = await getQuickNav();
+
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
       <div className="fixed inset-0 hero-gradient -z-10" />
@@ -46,11 +57,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="card bg-slate-50/50 dark:bg-slate-900/20 border-slate-100 dark:border-slate-800">
                 <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Quick Navigation</p>
                 <nav className="flex flex-col gap-3">
-                  <Link href="/tools/emi-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">EMI Calculator India</Link>
-                  <Link href="/tools/gst-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">Online GST Calculator</Link>
-                  <Link href="/tools/sip-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">Mutual Fund SIP Tool</Link>
-                  <Link href="/tools/word-counter" className="text-sm font-medium hover:text-blue-500 transition-colors">Free Word Counter</Link>
-                  <Link href="/tools/age-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">Age & Longevity Tool</Link>
+                  {quickLinks.map((link: any) => (
+                    <Link 
+                      key={link.slug} 
+                      href={`/tools/${link.slug}`} 
+                      className="text-sm font-medium hover:text-blue-500 transition-colors line-clamp-1"
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
+                  {quickLinks.length === 0 && (
+                    <>
+                      <Link href="/tools/emi-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">EMI Calculator India</Link>
+                      <Link href="/tools/gst-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">Online GST Calculator</Link>
+                    </>
+                  )}
                 </nav>
               </div>
 

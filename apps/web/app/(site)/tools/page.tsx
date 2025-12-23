@@ -1,18 +1,45 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { toolsSlugs } from "./slugRoutes";
+import { sanityClient } from "../../../lib/sanityClient";
 
 export const metadata: Metadata = {
   title: "All Productivity & Financial Tools – OmniTools Utility Hub",
   description: "Browse our complete directory of free online utility tools. From GST and EMI calculators to word counters and slug generators, find everything you need for daily productivity on OmniTools.",
   keywords: ["OmniTools", "online utility tools", "financial calculators", "text processing tools", "free online calculators", "productivity tools hub"],
+  alternates: {
+    canonical: "https://mydailytools-pi.vercel.app/tools",
+  },
+  openGraph: {
+    title: "All Productivity & Financial Tools | OmniTools",
+    description: "Browse our complete directory of free online utility tools. Secure, fast, and private.",
+    url: "https://mydailytools-pi.vercel.app/tools",
+    siteName: "OmniTools",
+    type: "website",
+  },
 };
 
-export default function ToolsIndex() {
-  const financialTools = ["emi-calculator", "gst-calculator", "sip-calculator"];
-  const textTools = ["word-counter", "case-converter", "character-counter", "slug-generator"];
-  const otherTools = toolsSlugs.filter(s => !financialTools.includes(s) && !textTools.includes(s));
+async function getAllTools() {
+  const query = `*[_type == "tool"] | order(title asc) {
+    title,
+    "slug": slug.current,
+    category,
+    shortDescription
+  }`;
+  return await sanityClient.fetch(query);
+}
+
+export default async function ToolsIndex() {
+  const tools = await getAllTools();
+
+  const groupedTools = tools.reduce((acc: any, tool: any) => {
+    const category = tool.category || "General Utilities";
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(tool);
+    return acc;
+  }, {});
+
+  const categories = Object.keys(groupedTools).sort();
 
   return (
     <main>
@@ -27,46 +54,24 @@ export default function ToolsIndex() {
       </header>
 
       <div className="space-y-16">
-        {/* Financial Tools Section */}
-        <section>
-          <div className="flex flex-col gap-2 mb-8">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Financial & India Calculators</h2>
-            <p className="text-[var(--muted)]">Smart calculators for loans, taxes, and investments in India.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {financialTools.map((s) => (
-              <ToolCard key={s} slug={s} />
-            ))}
-          </div>
-        </section>
-
-        {/* Text Utilities Section */}
-        <section>
-          <div className="flex flex-col gap-2 mb-8">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Text & Content Utilities</h2>
-            <p className="text-[var(--muted)]">Fast tools for word counting, formatting, and SEO optimization.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {textTools.map((s) => (
-              <ToolCard key={s} slug={s} />
-            ))}
-          </div>
-        </section>
-
-        {/* Other Tools Section */}
-        {otherTools.length > 0 && (
-          <section>
+        {categories.map((cat) => (
+          <section key={cat}>
             <div className="flex flex-col gap-2 mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">More Tools</h2>
-              <p className="text-[var(--muted)]">Other specialized utilities for your daily needs.</p>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white capitalize">{cat}</h2>
+              <p className="text-[var(--muted)]">Highly optimized digital tools for {cat.toLowerCase()}.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {otherTools.map((s) => (
-                <ToolCard key={s} slug={s} />
+              {groupedTools[cat].map((tool: any) => (
+                <ToolCard 
+                  key={tool.slug} 
+                  slug={tool.slug} 
+                  title={tool.title} 
+                  description={tool.shortDescription} 
+                />
               ))}
             </div>
           </section>
-        )}
+        ))}
       </div>
 
       <section className="mt-20 prose dark:prose-invert max-w-none border-t border-slate-100 dark:border-slate-800 pt-12">
@@ -82,16 +87,15 @@ export default function ToolsIndex() {
   );
 }
 
-function ToolCard({ slug }: { slug: string }) {
+function ToolCard({ slug, title, description }: { slug: string; title: string; description?: string }) {
   return (
     <Link href={`/tools/${slug}`} className="group">
       <div className="card h-full flex flex-col hover:border-blue-500 hover:shadow-md transition-all duration-300">
-        <h3 className="font-bold text-xl mb-3 capitalize text-slate-900 dark:text-white">
-          {slug.replace(/-/g, " ")}
+        <h3 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">
+          {title}
         </h3>
         <p className="text-sm text-[var(--muted)] leading-relaxed mb-6">
-          Advanced {slug.replace(/-/g, " ")} designed for high performance and accuracy. 
-          100% free and private.
+          {description || `Advanced online utility designed for high performance and accuracy. 100% free and private.`}
         </p>
         <div className="mt-auto pt-4 flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-sm">
           Open Tool

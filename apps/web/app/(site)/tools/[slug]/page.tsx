@@ -9,6 +9,14 @@ import RelatedTools from "../../../../components/RelatedTools";
 
 export const revalidate = 86400; // ISR
 
+export async function generateStaticParams() {
+  const query = `*[_type == "tool"] { "slug": slug.current }`;
+  const tools = await sanityClient.fetch(query);
+  return tools.map((tool: { slug: string }) => ({
+    slug: tool.slug,
+  }));
+}
+
 async function getToolBySlug(slug: string) {
   const query = `*[_type == "tool" && slug.current == $slug][0]`;
   const tool = await sanityClient.fetch(query, { slug });
