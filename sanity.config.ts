@@ -4,6 +4,8 @@ import tool from "./sanity/schemas/tool";
 import faq from "./sanity/schemas/faq";
 import siteConfig from "./sanity/schemas/siteConfig";
 
+import page from "./sanity/schemas/page";
+
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "rzrp85q6";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
@@ -15,6 +17,6 @@ export default defineConfig({
   dataset,
   plugins: [deskTool()],
   schema: {
-    types: [tool, faq, siteConfig],
+    types: [tool, faq, siteConfig, page],
   },
 });
