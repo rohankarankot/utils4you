@@ -1,21 +1,23 @@
-# Tools Monorepo
+# Web (apps/web)
 
-Monorepo containing a Next.js frontend and Sanity Studio for content. Uses npm workspaces.
+Next.js App Router app with TypeScript and Tailwind.
 
-Requirements
-- Node.js 20+
-- npm
+Scripts:
+- `npm run dev` — run the web app (from repo root runs workspace script)
+- `npm run build` — build for production
+- `npm run test` — run unit tests (Vitest)
+- `npm run next-sitemap` — generate sitemap.xml (used in CI)
 
-Quickstart
-1. Install: `npm ci`
-2. Dev (web): `npm run dev` (runs `apps/web` dev server)
-3. Dev (studio): `npm run studio:dev`
+AdSense checklist
+- Replace `DATA-ADSENSE-CLIENT` and `DATA-ADSENSE-SLOT` in `components/Adsense.tsx` with real values.
+- Add privacy policy and ensure consent where required.
+- Add `public/ads.txt` publisher lines.
 
-See `apps/web/README.md` for app-specific instructions.
+SEO checklist
+- Each tool page uses Sanity long-form content (700–1200 words) and includes FAQ with JSON-LD.
+- H1 contains the main keyword and first paragraph answers the query.
+- Pages use `revalidate = 86400` for ISR.
+- `next-sitemap` is configured in `next-sitemap.js` and runs via `npm run next-sitemap`.
 
-✅ This repo includes:
-- SEO-first Next.js App Router app in `apps/web`
-- Sanity Studio in `packages/studio` for content and SEO
-- Client-side calculators and pure functions with unit tests
-- Sitemap & robots, JSON-LD for FAQ and Breadcrumbs
-- GitHub Actions CI for lint → test → build → sitemap
+Deploy
+- Deploy `apps/web` to Vercel and add `NEXT_PUBLIC_SITE_URL` environment variable.
