@@ -9,6 +9,13 @@ export async function generateMetadata() {
   return await generateSiteMetadata("/tools");
 }
 
+const CATEGORY_LABELS: Record<string, string> = {
+  "text-tools": "Text Processing Tools",
+  "financial-calculators": "Financial Calculators",
+  "health-calculators": "Health & Fitness Calculators",
+  "developer-tools": "Developer Utilities",
+};
+
 async function getAllTools() {
   const query = `*[_type == "tool"] | order(title asc) {
     title,
@@ -21,7 +28,6 @@ async function getAllTools() {
 
 export default async function ToolsIndex() {
   const tools = await getAllTools();
-
   const groupedTools = tools.reduce((acc: any, tool: any) => {
     const category = tool.category || "General Utilities";
     if (!acc[category]) acc[category] = [];
@@ -47,7 +53,9 @@ export default async function ToolsIndex() {
         {categories.map((cat) => (
           <section key={cat}>
             <div className="flex flex-col gap-2 mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white capitalize">{cat}</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white capitalize">
+                {CATEGORY_LABELS[cat] || cat.replace(/-/g, ' ')}
+              </h2>
               <p className="text-[var(--muted)]">Highly optimized digital tools for {cat.toLowerCase()}.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -57,6 +65,7 @@ export default async function ToolsIndex() {
                   slug={tool.slug} 
                   title={tool.title} 
                   description={tool.shortDescription} 
+                  category={tool.category}
                 />
               ))}
             </div>
@@ -77,10 +86,17 @@ export default async function ToolsIndex() {
   );
 }
 
-function ToolCard({ slug, title, description }: { slug: string; title: string; description?: string }) {
+function ToolCard({ slug, title, description, category }: { slug: string; title: string; description?: string; category?: string }) {
   return (
     <Link href={`/tools/${slug}`} className="group">
       <div className="card h-full flex flex-col hover:border-blue-500 hover:shadow-md transition-all duration-300">
+        <div className="flex items-center gap-2 mb-3">
+          {category && (
+            <span className="px-2 py-0.5 text-[10px] uppercase tracking-wider font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-md border border-blue-100 dark:border-blue-800">
+              {CATEGORY_LABELS[category] || category.replace(/-/g, ' ')}
+            </span>
+          )}
+        </div>
         <h3 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">
           {title}
         </h3>
