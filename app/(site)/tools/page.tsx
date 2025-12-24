@@ -3,21 +3,11 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { sanityClient } from "../../../lib/sanityClient";
 
-export const metadata: Metadata = {
-  title: "All Productivity & Financial Tools – OmniTools Utility Hub",
-  description: "Browse our complete directory of free online utility tools. From GST and EMI calculators to word counters and slug generators, find everything you need for daily productivity on OmniTools.",
-  keywords: ["OmniTools", "online utility tools", "financial calculators", "text processing tools", "free online calculators", "productivity tools hub"],
-  alternates: {
-    canonical: "https://mydailytools-pi.vercel.app/tools",
-  },
-  openGraph: {
-    title: "All Productivity & Financial Tools | OmniTools",
-    description: "Browse our complete directory of free online utility tools. Secure, fast, and private.",
-    url: "https://mydailytools-pi.vercel.app/tools",
-    siteName: "OmniTools",
-    type: "website",
-  },
-};
+import { generateSiteMetadata } from "../../../lib/seo";
+
+export async function generateMetadata() {
+  return await generateSiteMetadata("/tools");
+}
 
 async function getAllTools() {
   const query = `*[_type == "tool"] | order(title asc) {

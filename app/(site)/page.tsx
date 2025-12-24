@@ -2,11 +2,11 @@ import Link from "next/link";
 import { toolsSlugs } from "./tools/slugRoutes";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "OmniTools – Free Online Tools for Daily Productivity",
-  description: "Experience the power of OmniTools. Fast, secure, and private online tools for text processing, financial calculations, and professional utility.",
-  keywords: ["OmniTools", "free online tools", "best utility tools", "text tools", "financial calculators India"],
-};
+import { generateSiteMetadata } from "../../lib/seo";
+
+export async function generateMetadata() {
+  return await generateSiteMetadata("/");
+}
 
 export default function Home() {
   return (
