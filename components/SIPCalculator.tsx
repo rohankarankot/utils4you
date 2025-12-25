@@ -8,6 +8,7 @@ import {
 import Button from "./Button";
 import Card from "./Card";
 import EMIChart from "./EMIChart"; // reuse chart for invested vs returns
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const presets = {
   retirement: {
@@ -34,6 +35,7 @@ export default function SIPCalculator() {
   const [monthly, setMonthly] = useState(5000);
   const [rate, setRate] = useState(presets.retirement.rate);
   const [tenureYears, setTenureYears] = useState(10);
+  const [currentYear, setCurrentYear] = useState(1);
   const [preset, setPreset] = useState<keyof typeof presets>("retirement");
 
   const months = Math.max(0, Math.round(tenureYears * 12));
@@ -211,27 +213,60 @@ export default function SIPCalculator() {
             </div>
           )}
         </div>
-        <div>
-          <h4 className="font-medium">Growth (first 12 months)</h4>
-          <div className="overflow-auto mt-2">
-            <table className="w-full text-sm">
-              <thead className="text-left text-[var(--muted)]">
+        <div className="mt-8">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="font-medium">Investment Schedule</h4>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-[var(--muted)]">Year {currentYear}</span>
+              <div className="flex items-center rounded-lg border border-[var(--surface-border)] bg-[var(--surface)] p-1">
+                <button
+                  onClick={() => setCurrentYear(p => Math.max(1, p - 1))}
+                  disabled={currentYear === 1}
+                  className="p-1 rounded hover:bg-[var(--bg)] disabled:opacity-50 disabled:hover:bg-transparent transition-colors"
+                  aria-label="Previous Year"
+                >
+                  <ChevronLeft size={16} className="text-[var(--muted)]" />
+                </button>
+                <button
+                  onClick={() => setCurrentYear(p => Math.min(Math.ceil(schedule.length / 12), p + 1))}
+                  disabled={currentYear >= Math.ceil(schedule.length / 12)}
+                  className="p-1 rounded hover:bg-[var(--bg)] disabled:opacity-50 disabled:hover:bg-transparent transition-colors"
+                  aria-label="Next Year"
+                >
+                  <ChevronRight size={16} className="text-[var(--muted)]" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full text-xs sm:text-sm min-w-[500px]">
+              <thead className="text-left text-[var(--muted)] border-b dark:border-slate-800">
                 <tr>
-                  <th>Month</th>
-                  <th>Contribution</th>
-                  <th>Returns</th>
-                  <th>Balance</th>
+                  <th className="pb-2 font-medium">Month</th>
+                  <th className="pb-2 font-medium">Contribution</th>
+                  <th className="pb-2 font-medium">Returns</th>
+                  <th className="pb-2 font-medium">Balance</th>
                 </tr>
               </thead>
               <tbody>
-                {schedule.slice(0, 12).map((s) => (
-                  <tr key={s.month} className="border-t">
-                    <td className="py-2">{s.month}</td>
-                    <td>₹ {s.contribution.toLocaleString()}</td>
-                    <td>₹ {s.returns.toLocaleString()}</td>
-                    <td>₹ {s.balance.toLocaleString()}</td>
-                  </tr>
+                {schedule
+                  .slice((currentYear - 1) * 12, currentYear * 12)
+                  .map((s) => (
+                    <tr key={s.month} className="border-t border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+                      <td className="py-2.5 font-medium text-[var(--muted)]">{s.month}</td>
+                      <td className="py-2.5 text-[var(--text)]">₹ {s.contribution.toLocaleString()}</td>
+                      <td className="py-2.5 text-emerald-600 dark:text-emerald-400 font-medium">₹ {s.returns.toLocaleString()}</td>
+                      <td className="py-2.5 font-bold text-[var(--text)]">₹ {s.balance.toLocaleString()}</td>
+                    </tr>
                 ))}
+                {schedule.length === 0 && (
+                   <tr>
+                     <td colSpan={4} className="py-8 text-center text-[var(--muted)]">
+                       Enter valid investment details to view the schedule.
+                     </td>
+                   </tr>
+                )}
               </tbody>
             </table>
           </div>
