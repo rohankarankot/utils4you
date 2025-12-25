@@ -68,7 +68,7 @@ export default async function ToolPage({
       <h1 className="text-3xl font-bold mb-4">{heroTitle}</h1>
       {heroSubtitle && <p className="text-lg text-[var(--muted)] mb-6">{heroSubtitle}</p>}
       
-      {tool.showAdsense !== false && <Adsense className="mb-6" />}
+      {tool.showAdsense !== false && <Adsense className="mb-6" slot="8795533518" />}
       
       {/* Tool Component Placeholder - will be mapped below */}
       <ToolRenderer slug={slug} />
