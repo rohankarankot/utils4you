@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Adsense from "./Adsense";
+import ToolsDropdown from "./ToolsDropdown";
 import ThemeToggle from "./ThemeToggle";
 import { sanityClient } from "../lib/sanityClient";
 
 async function getQuickNav() {
-  const query = `*[_type == "tool"] | order(_createdAt desc)[0...5] {
+  const query = `*[_type == "tool"] | order(_createdAt desc) {
     title,
     "slug": slug.current
   }`;
@@ -14,7 +15,6 @@ async function getQuickNav() {
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const quickLinks = await getQuickNav();
-
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
       <div className="fixed inset-0 hero-gradient -z-10" />
@@ -29,9 +29,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
               >
                 OmniTools
               </Link>
-              <Link href="/tools" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
-                All Tools
-              </Link>
+              <ToolsDropdown tools={quickLinks} />
               <Link href="/about" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
                 About
               </Link>

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { sanityClient } from "../lib/sanityClient";
 
 async function getRelatedTools(currentSlug: string) {
-  // Fetch up to 10 tools to ensure we have enough to filter and slice
   const query = `*[_type == "tool" && slug.current != $currentSlug] | order(_createdAt desc)[0...6] {
     title,
     "slug": slug.current,
