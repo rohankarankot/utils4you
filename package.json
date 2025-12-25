@@ -12,6 +12,7 @@
     "next-sitemap": "next-sitemap"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "@sanity/client": "^7.13.2",
     "chart.js": "^4.5.1",
     "clsx": "^1.2.1",
