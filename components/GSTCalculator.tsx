@@ -146,26 +146,26 @@ export default function GSTCalculator() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 mt-4">
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-3 rounded-md bg-[var(--bg)] text-sm">
                 <div className="text-xs text-[var(--muted)]">Base Amount</div>
-                <div className="font-medium">
+                <div className="font-semibold text-lg">
                   ₹ {breakdown.base.toLocaleString()}
                 </div>
               </div>
 
               <div className="p-3 rounded-md bg-[var(--bg)] text-sm">
                 <div className="text-xs text-[var(--muted)]">Tax Amount</div>
-                <div className="font-medium">
+                <div className="font-semibold text-lg">
                   ₹ {breakdown.tax.toLocaleString()}
                 </div>
               </div>
 
               <div className="p-3 rounded-md bg-[var(--bg)] text-sm">
                 <div className="text-xs text-[var(--muted)]">Total</div>
-                <div className="font-medium">
+                <div className="font-semibold text-lg">
                   ₹ {breakdown.total.toLocaleString()}
                 </div>
               </div>

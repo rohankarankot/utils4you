@@ -154,18 +154,18 @@ export default function EMICalculator() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 mt-4">
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-3 rounded-md bg-[var(--bg)] text-sm">
                 <div className="text-xs text-[var(--muted)]">Monthly EMI</div>
-                <div className="font-medium">
+                <div className="font-semibold text-lg">
                   {isValid ? `₹ ${formatCurrency(breakdown.emi)}` : "—"}
                 </div>
               </div>
               <div className="p-3 rounded-md bg-[var(--bg)] text-sm">
                 <div className="text-xs text-[var(--muted)]">Total Payment</div>
-                <div className="font-medium">
+                <div className="font-semibold text-lg">
                   {isValid
                     ? `₹ ${formatCurrency(breakdown.totalPayment)}`
                     : "—"}
@@ -175,7 +175,7 @@ export default function EMICalculator() {
                 <div className="text-xs text-[var(--muted)]">
                   Total Interest
                 </div>
-                <div className="font-medium">
+                <div className="font-semibold text-lg">
                   {isValid
                     ? `₹ ${formatCurrency(breakdown.totalInterest)}`
                     : "—"}
