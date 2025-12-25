@@ -201,25 +201,25 @@ export default function EMICalculator() {
         </div>
         <div>
           <h4 className="font-medium">Amortization (first 12 months)</h4>
-          <div className="overflow-auto mt-2">
-            <table className="w-full text-sm">
-              <thead className="text-left text-[var(--muted)]">
+          <div className="overflow-x-auto mt-2 -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full text-xs sm:text-sm min-w-[500px]">
+              <thead className="text-left text-[var(--muted)] border-b dark:border-slate-800">
                 <tr>
-                  <th>Month</th>
-                  <th>Payment</th>
-                  <th>Principal</th>
-                  <th>Interest</th>
-                  <th>Balance</th>
+                  <th className="pb-2 font-medium">Month</th>
+                  <th className="pb-2 font-medium">Payment</th>
+                  <th className="pb-2 font-medium">Principal</th>
+                  <th className="pb-2 font-medium">Interest</th>
+                  <th className="pb-2 font-medium">Balance</th>
                 </tr>
               </thead>
               <tbody>
                 {schedule.slice(0, 12).map((s) => (
-                  <tr key={s.month} className="border-t">
-                    <td className="py-2">{s.month}</td>
-                    <td>₹ {s.payment.toLocaleString()}</td>
-                    <td>₹ {s.principalComponent.toLocaleString()}</td>
-                    <td>₹ {s.interestComponent.toLocaleString()}</td>
-                    <td>₹ {s.balance.toLocaleString()}</td>
+                  <tr key={s.month} className="border-t border-slate-100 dark:border-slate-800">
+                    <td className="py-2.5 font-medium text-[var(--muted)]">{s.month}</td>
+                    <td className="py-2.5">₹ {s.payment.toLocaleString()}</td>
+                    <td className="py-2.5 text-emerald-600 dark:text-emerald-400">₹ {s.principalComponent.toLocaleString()}</td>
+                    <td className="py-2.5 text-rose-600 dark:text-rose-400">₹ {s.interestComponent.toLocaleString()}</td>
+                    <td className="py-2.5 text-[var(--muted)]">₹ {s.balance.toLocaleString()}</td>
                   </tr>
                 ))}
               </tbody>
