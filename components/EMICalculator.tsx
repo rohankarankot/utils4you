@@ -17,6 +17,7 @@ const presets = {
 };
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { formatCurrency } from "../lib/utils";
 
 export default function EMICalculator() {
   const [principal, setPrincipal] = useState(500000);
@@ -159,14 +160,14 @@ export default function EMICalculator() {
               <div className="p-3 rounded-md bg-[var(--bg)] text-sm">
                 <div className="text-xs text-[var(--muted)]">Monthly EMI</div>
                 <div className="font-medium">
-                  {isValid ? `₹ ${breakdown.emi.toLocaleString()}` : "—"}
+                  {isValid ? `₹ ${formatCurrency(breakdown.emi)}` : "—"}
                 </div>
               </div>
               <div className="p-3 rounded-md bg-[var(--bg)] text-sm">
                 <div className="text-xs text-[var(--muted)]">Total Payment</div>
                 <div className="font-medium">
                   {isValid
-                    ? `₹ ${breakdown.totalPayment.toLocaleString()}`
+                    ? `₹ ${formatCurrency(breakdown.totalPayment)}`
                     : "—"}
                 </div>
               </div>
@@ -176,7 +177,7 @@ export default function EMICalculator() {
                 </div>
                 <div className="font-medium">
                   {isValid
-                    ? `₹ ${breakdown.totalInterest.toLocaleString()}`
+                    ? `₹ ${formatCurrency(breakdown.totalInterest)}`
                     : "—"}
                 </div>
               </div>
@@ -244,10 +245,10 @@ export default function EMICalculator() {
                   .map((s) => (
                     <tr key={s.month} className="border-t border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
                       <td className="py-2.5 font-medium text-[var(--muted)]">{s.month}</td>
-                      <td className="py-2.5">₹ {s.payment.toLocaleString()}</td>
-                      <td className="py-2.5 text-emerald-600 dark:text-emerald-400">₹ {s.principalComponent.toLocaleString()}</td>
-                      <td className="py-2.5 text-rose-600 dark:text-rose-400">₹ {s.interestComponent.toLocaleString()}</td>
-                      <td className="py-2.5 text-[var(--muted)]">₹ {s.balance.toLocaleString()}</td>
+                      <td className="py-2.5">₹ {formatCurrency(s.payment)}</td>
+                      <td className="py-2.5 text-emerald-600 dark:text-emerald-400">₹ {formatCurrency(s.principalComponent)}</td>
+                      <td className="py-2.5 text-rose-600 dark:text-rose-400">₹ {formatCurrency(s.interestComponent)}</td>
+                      <td className="py-2.5 text-[var(--muted)]">₹ {formatCurrency(s.balance)}</td>
                     </tr>
                 ))}
                 {schedule.length === 0 && (
