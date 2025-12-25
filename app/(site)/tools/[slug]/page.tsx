@@ -139,6 +139,7 @@ import SlugGenerator from "../../../../components/SlugGenerator";
 import BMICalculator from "../../../../components/BMICalculator";
 import HTMLMinifier from "../../../../components/HTMLMinifier";
 import JSONFormatter from "../../../../components/JSONFormatter";
+import CodeEditor from "../../../../components/CodeEditor";
 
 function ToolRenderer({ slug }: { slug: string }) {
   switch (slug) {
@@ -154,6 +155,7 @@ function ToolRenderer({ slug }: { slug: string }) {
     case "bmi-calculator": return <BMICalculator />;
     case "html-minify": return <HTMLMinifier />;
     case "json-formatter": return <JSONFormatter />;
+    case "code-editor": return <CodeEditor />;
     // Fallback or other tools...
     default: return null;
   }
