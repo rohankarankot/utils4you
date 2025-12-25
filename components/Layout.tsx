@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { Instagram, Linkedin, Github, Globe, Twitter } from "lucide-react";
 import Adsense from "./Adsense";
 import ToolsDropdown from "./ToolsDropdown";
 import ThemeToggle from "./ThemeToggle";
-import { sanityClient } from "../lib/sanityClient";
+import { sanityClient, urlFor } from "../lib/sanityClient";
 
 async function getQuickNav() {
   const query = `*[_type == "tool"] | order(_createdAt desc) {
@@ -13,8 +14,25 @@ async function getQuickNav() {
   return await sanityClient.fetch(query);
 }
 
+async function getDeveloperProfile() {
+  const query = `*[_type == "developer"][0]`;
+  return await sanityClient.fetch(query);
+}
+
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const quickLinks = await getQuickNav();
+  const developer = await getDeveloperProfile();
+
+  const getSocialIcon = (platform: string) => {
+    switch (platform?.toLowerCase()) {
+      case "github": return <Github size={20} />;
+      case "linkedin": return <Linkedin size={20} />;
+      case "instagram": return <Instagram size={20} />;
+      case "twitter": return <Twitter size={20} />;
+      default: return <Globe size={20} />;
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
       <div className="fixed inset-0 hero-gradient -z-10" />
@@ -94,11 +112,46 @@ export default async function Layout({ children }: { children: React.ReactNode }
             <Link href="/privacy-policy" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Privacy</Link>
             <Link href="/terms-and-conditions" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Terms</Link>
           </div>
+          <div className="flex flex-col items-center gap-3 mb-8 pb-8 border-b border-[var(--surface-border)]">
+            <p className="text-xs font-semibold text-[var(--muted)] uppercase tracking-widest">Developed by</p>
+            <Link href="/developer" className="group flex items-center gap-3 bg-[var(--surface)] pl-2 pr-4 py-2 rounded-full border border-[var(--surface-border)] shadow-sm hover:shadow-md hover:border-[var(--primary)] transition-all">
+               <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 overflow-hidden flex items-center justify-center bg-slate-200 dark:bg-slate-800">
+                 {developer?.image ? (
+                   <img 
+                     src={urlFor(developer.image).width(64).height(64).url()} 
+                     alt={developer.name} 
+                     className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
+                   />
+                 ) : (
+                    <span className="text-xs font-bold text-[var(--muted)]">{developer?.name?.charAt(0) || "R"}</span>
+                 )}
+               </div>
+               <span className="font-medium text-sm group-hover:text-[var(--primary)] transition-colors">{developer?.name || "Rohan"}</span>
+            </Link>
+            <div className="flex items-center gap-3 text-[var(--muted)] mt-1">
+                 {developer?.socialLinks && developer.socialLinks.map((link: any) => (
+                    <a 
+                      key={link._key}
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hover:text-[var(--primary)] transition-colors" 
+                      aria-label={link.platform}
+                    >
+                      {getSocialIcon(link.platform)}
+                    </a>
+                 ))}
+                 {!developer?.socialLinks && (
+                   <span className="text-xs text-[var(--muted)]">Connect with me</span>
+                 )}
+            </div>
+          </div>
+
           <p className="text-sm text-[var(--muted)] mb-2">
             © {new Date().getFullYear()} OmniTools.
           </p>
           <p className="text-xs text-[var(--muted)]">
-            Contact: <a href="mailto:support@mydailytools.com" className="hover:text-[var(--primary)]">support@mydailytools.com</a>
+            Contact: <a href="mailto:rohan.alwayscodes@gmail.com" className="hover:text-[var(--primary)]">rohan.alwayscodes@gmail.com</a>
           </p>
         </div>
       </footer>
