@@ -12,6 +12,7 @@ import {
 import { Pie, Bar } from "react-chartjs-2";
 import React, { useState, useRef, useImperativeHandle } from "react";
 import Button from "./Button";
+import { formatCurrency } from "../lib/utils";
 
 ChartJS.register(
   ArcElement,
@@ -249,7 +250,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                       <span className="text-[var(--muted)]">Principal</span>
                     </div>
                     <div className="font-medium">
-                      ₹ {principal.toLocaleString()}
+                      ₹ {formatCurrency(principal)}
                     </div>
                   </li>
 
@@ -262,7 +263,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                       <span className="text-[var(--muted)]">Interest</span>
                     </div>
                     <div className="font-medium">
-                      ₹ {interest.toLocaleString()}
+                      ₹ {formatCurrency(interest)}
                     </div>
                   </li>
 
@@ -272,7 +273,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                   </li>
 
                   <li className="pt-3 text-xs text-[var(--muted)]">
-                    Total payment: <strong>₹ {total.toLocaleString()}</strong>
+                    Total payment: <strong>₹ {formatCurrency(total)}</strong>
                   </li>
                 </ul>
               </div>
@@ -288,7 +289,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                     tooltip: {
                       callbacks: {
                         label: (context) =>
-                          `₹ ${Number(context.raw).toLocaleString()}`,
+                          `₹ ${formatCurrency(Number(context.raw))}`,
                       },
                     },
                   },
@@ -317,7 +318,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                       tooltip: {
                         callbacks: {
                           label: (context) =>
-                            `₹ ${Number(context.raw).toLocaleString()}`,
+                            `₹ ${formatCurrency(Number(context.raw))}`,
                         },
                       },
                     },
@@ -328,7 +329,7 @@ const EMIChart = React.forwardRef(function EMIChart(
               </div>
 
               <div className="mt-2 text-xs text-[var(--muted)]">
-                Total payment: <strong>₹ {total.toLocaleString()}</strong>
+                Total payment: <strong>₹ {formatCurrency(total)}</strong>
               </div>
             </div>
           </div>
@@ -357,7 +358,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                   <span className="text-[var(--muted)]">Principal</span>
                 </div>
                 <div className="font-medium">
-                  ₹ {principal.toLocaleString()}
+                  ₹ {formatCurrency(principal)}
                 </div>
               </li>
 
@@ -369,7 +370,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                   />
                   <span className="text-[var(--muted)]">Interest</span>
                 </div>
-                <div className="font-medium">₹ {interest.toLocaleString()}</div>
+                <div className="font-medium">₹ {formatCurrency(interest)}</div>
               </li>
 
               <li className="pt-2 text-xs text-[var(--muted)]">
@@ -393,7 +394,7 @@ const EMIChart = React.forwardRef(function EMIChart(
                 tooltip: {
                   callbacks: {
                     label: (context) =>
-                      `₹ ${Number(context.raw).toLocaleString()}`,
+                      `₹ ${formatCurrency(Number(context.raw))}`,
                   },
                 },
               },
@@ -404,7 +405,7 @@ const EMIChart = React.forwardRef(function EMIChart(
         </div>
 
         <div className="mt-2 text-xs text-[var(--muted)]">
-          Total payment: <strong>₹ {total.toLocaleString()}</strong>
+          Total payment: <strong>₹ {formatCurrency(total)}</strong>
         </div>
       </div>
     </div>

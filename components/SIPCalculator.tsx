@@ -9,6 +9,7 @@ import Button from "./Button";
 import Card from "./Card";
 import EMIChart from "./EMIChart"; // reuse chart for invested vs returns
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { formatCurrency } from "../lib/utils";
 
 const presets = {
   retirement: {
@@ -163,7 +164,7 @@ export default function SIPCalculator() {
                 <div className="text-xs text-[var(--muted)]">Future Value</div>
                 <div className="font-medium">
                   {isValid
-                    ? `₹ ${breakdown.futureValue.toLocaleString()}`
+                    ? `₹ ${formatCurrency(breakdown.futureValue)}`
                     : "—"}
                 </div>
               </div>
@@ -174,7 +175,7 @@ export default function SIPCalculator() {
                 </div>
                 <div className="font-medium">
                   {isValid
-                    ? `₹ ${breakdown.totalInvested.toLocaleString()}`
+                    ? `₹ ${formatCurrency(breakdown.totalInvested)}`
                     : "—"}
                 </div>
               </div>
@@ -183,7 +184,7 @@ export default function SIPCalculator() {
                 <div className="text-xs text-[var(--muted)]">Total Returns</div>
                 <div className="font-medium">
                   {isValid
-                    ? `₹ ${breakdown.totalReturns.toLocaleString()}`
+                    ? `₹ ${formatCurrency(breakdown.totalReturns)}`
                     : "—"}
                 </div>
               </div>
@@ -255,9 +256,9 @@ export default function SIPCalculator() {
                   .map((s) => (
                     <tr key={s.month} className="border-t border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
                       <td className="py-2.5 font-medium text-[var(--muted)]">{s.month}</td>
-                      <td className="py-2.5 text-[var(--text)]">₹ {s.contribution.toLocaleString()}</td>
-                      <td className="py-2.5 text-emerald-600 dark:text-emerald-400 font-medium">₹ {s.returns.toLocaleString()}</td>
-                      <td className="py-2.5 font-bold text-[var(--text)]">₹ {s.balance.toLocaleString()}</td>
+                      <td className="py-2.5 text-[var(--text)]">₹ {formatCurrency(s.contribution)}</td>
+                      <td className="py-2.5 text-emerald-600 dark:text-emerald-400 font-medium">₹ {formatCurrency(s.returns)}</td>
+                      <td className="py-2.5 font-bold text-[var(--text)]">₹ {formatCurrency(s.balance)}</td>
                     </tr>
                 ))}
                 {schedule.length === 0 && (
