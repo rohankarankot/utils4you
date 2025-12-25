@@ -199,30 +199,34 @@ const EMIChart = React.forwardRef(function EMIChart(
   if (fullWidth) {
     return (
       <div className="mt-4">
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <div className="text-sm text-[var(--muted)]">View</div>
-            <div className="inline-flex rounded-md bg-transparent p-1">
-              <button
-                className={`px-3 py-1 rounded ${layout === "stack" ? "bg-primary-500 text-white" : "bg-transparent"}`}
-                onClick={() => setLayout("stack")}
-              >
-                Stacked
-              </button>
-              <button
-                className={`px-3 py-1 rounded ${layout === "side" ? "bg-primary-500 text-white" : "bg-transparent"}`}
-                onClick={() => setLayout("side")}
-              >
-                Side-by-side
-              </button>
+        <div className="mb-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+            <div className="flex items-center gap-2">
+              <div className="text-sm text-[var(--muted)]">View</div>
+              <div className="inline-flex rounded-md bg-transparent p-1 border border-[var(--surface-border)]">
+                <button
+                  className={`px-3 py-1 rounded text-xs sm:text-sm transition-colors ${layout === "stack" ? "bg-primary-500 text-white font-medium shadow-sm" : "bg-transparent text-[var(--muted)] hover:text-[var(--text)]"}`}
+                  onClick={() => setLayout("stack")}
+                >
+                  Stacked
+                </button>
+                <button
+                  className={`px-3 py-1 rounded text-xs sm:text-sm transition-colors ${layout === "side" ? "bg-primary-500 text-white font-medium shadow-sm" : "bg-transparent text-[var(--muted)] hover:text-[var(--text)]"}`}
+                  onClick={() => setLayout("side")}
+                >
+                  Side-by-side
+                </button>
+              </div>
             </div>
 
-            <Button onClick={() => exportCombinedPNG()} variant="ghost">
-              Export PNG
-            </Button>
-            <Button onClick={() => downloadCSV()} variant="ghost">
-              Export CSV
-            </Button>
+            <div className="flex items-center gap-2 ml-auto sm:ml-0">
+              <Button onClick={() => exportCombinedPNG()} variant="ghost" className="whitespace-nowrap text-xs sm:text-sm px-2 sm:px-4">
+                Export PNG
+              </Button>
+              <Button onClick={() => downloadCSV()} variant="ghost" className="whitespace-nowrap text-xs sm:text-sm px-2 sm:px-4">
+                Export CSV
+              </Button>
+            </div>
           </div>
         </div>
 
