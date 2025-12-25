@@ -10,14 +10,12 @@ declare global {
 
 export default function Adsense({
   slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT|| "8795533518",
-  client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT,
   className = "",
   style = { display: "block" },
   format = "auto",
   responsive = "true",
 }: {
   slot?: string;
-  client?: string;
   className?: string;
   style?: React.CSSProperties;
   format?: string;
@@ -33,7 +31,8 @@ export default function Adsense({
     }
   }, []);
 
-  if (!slot || !client || slot === "DATA-ADSENSE-SLOT" || client === "DATA-ADSENSE-CLIENT") {
+ 
+  if (!slot ) {
     return (
       <div className={`${className} my-4`}>
         <div className="w-full rounded-md border border-dashed border-slate-200 bg-slate-50 text-slate-700 p-8 text-center dark:bg-slate-800 dark:text-slate-200">
@@ -49,7 +48,7 @@ export default function Adsense({
       <ins
         className="adsbygoogle"
         style={style}
-        data-ad-client={client}
+        data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive={responsive}
