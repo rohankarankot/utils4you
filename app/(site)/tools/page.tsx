@@ -14,6 +14,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   "financial-calculators": "Financial Calculators",
   "health-calculators": "Health & Fitness Calculators",
   "developer-tools": "Developer Utilities",
+  "image-tools": "Image Processing Tools",
 };
 
 async function getAllTools() {
@@ -44,7 +45,7 @@ export default async function ToolsIndex() {
           All Productivity Tools & Calculators
         </h1>
         <p className="text-lg text-[var(--muted)] max-w-3xl leading-relaxed">
-          The central hub for all OmniTools utilities. Our collection is built for speed, privacy, 
+          The central hub for all OmniTools utilities. Our collection is built for speed, privacy,
           and precise calculations. Select a category below to explore our optimized tools.
         </p>
       </header>
@@ -60,11 +61,11 @@ export default async function ToolsIndex() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {groupedTools[cat].map((tool: any) => (
-                <ToolCard 
-                  key={tool.slug} 
-                  slug={tool.slug} 
-                  title={tool.title} 
-                  description={tool.shortDescription} 
+                <ToolCard
+                  key={tool.slug}
+                  slug={tool.slug}
+                  title={tool.title}
+                  description={tool.shortDescription}
                   category={tool.category}
                 />
               ))}
@@ -76,9 +77,9 @@ export default async function ToolsIndex() {
       <section className="mt-20 prose dark:prose-invert max-w-none border-t border-slate-100 dark:border-slate-800 pt-12">
         <h2 className="text-2xl font-bold mb-4">Why OmniTools is Your Daily Productivity Partner</h2>
         <p>
-          In a world where digital privacy is often compromised, OmniTools offers a secure alternative. 
-          All our tools are optimized for performance, ensuring they load instantly even on slow connections. 
-          Whether you are an Indian professional calculating GST or a student counting words for an essay, 
+          In a world where digital privacy is often compromised, OmniTools offers a secure alternative.
+          All our tools are optimized for performance, ensuring they load instantly even on slow connections.
+          Whether you are an Indian professional calculating GST or a student counting words for an essay,
           our tools provide browser-based processing, meaning your data never leaves your computer.
         </p>
       </section>
