@@ -18,7 +18,6 @@ export async function generateStaticParams() {
 }
 
 async function getToolBySlug(slug: string) {
-
   const query = `*[_type == "tool" && slug.current == $slug][0]`;
   const tool = await sanityClient.fetch(query, { slug });
   return tool;
@@ -143,6 +142,7 @@ import JSONFormatter from "../../../../components/JSONFormatter";
 import CodeEditor from "../../../../components/CodeEditor";
 import ImageCompressor from "../../../../components/ImageCompressor";
 import QRCodeGenerator from "../../../../components/QRCodeGenerator";
+import ImageToText from "../../../../components/ImageToText";
 
 const TOOLS: Record<string, React.JSX.Element> = {
   "emi-calculator": <EMICalculator />,
@@ -160,6 +160,7 @@ const TOOLS: Record<string, React.JSX.Element> = {
   "code-editor": <CodeEditor />,
   "image-compressor": <ImageCompressor />,
   "qr-code-generator": <QRCodeGenerator />,
+  "image-to-text": <ImageToText />,
 };
 
 function ToolRenderer({ slug }: { slug: string }) {
