@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import Editor from "@monaco-editor/react";
-import { Play, RotateCcw, Copy, Check, Maximize2, Minimize2 } from "lucide-react";
+import React, { useState, useRef } from "react";
+import Editor, { OnMount } from "@monaco-editor/react";
+import { Play, RotateCcw, Copy, Check, Maximize2, Minimize2, Wand2, Settings } from "lucide-react";
 import Button from "./Button";
 import Card from "./Card";
 
@@ -17,12 +17,21 @@ const LANGUAGES = [
   { id: "php", name: "PHP", version: "8.2.3", defaultCode: `<?php\n\necho "Hello, World!\\n";\necho "Sum: " . (5 + 10);\n` },
 ];
 
+const FONT_SIZES = [12, 14, 16, 18, 20, 24, 28, 32];
+
 export default function CodeEditor() {
   const [language, setLanguage] = useState(LANGUAGES[0]);
   const [code, setCode] = useState(LANGUAGES[0].defaultCode);
   const [output, setOutput] = useState("");
   const [isRunning, setIsRunning] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [fontSize, setFontSize] = useState(14);
+
+  const editorRef = useRef<any>(null);
+
+  const handleEditorDidMount: OnMount = (editor, monaco) => {
+    editorRef.current = editor;
+  };
 
   // Handle Language Change
   const handleLanguageChange = (langId: string) => {
@@ -31,6 +40,13 @@ export default function CodeEditor() {
       setLanguage(selectedLang);
       setCode(selectedLang.defaultCode);
       setOutput("");
+    }
+  };
+
+  // Format Code
+  const formatCode = () => {
+    if (editorRef.current) {
+      editorRef.current.getAction('editor.action.formatDocument').run();
     }
   };
 
@@ -57,7 +73,7 @@ export default function CodeEditor() {
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || "Failed to execute code");
       }
@@ -86,14 +102,12 @@ export default function CodeEditor() {
   };
 
   return (
-    <div className={`flex flex-col gap-6 w-full mx-auto transition-all duration-300 ${
-      isFullScreen 
-        ? "fixed inset-0 z-50 h-[100dvh] w-[100dvw] bg-[#1e1e1e] p-4" 
-        : "max-w-6xl"
-    }`}>
-      <Card className={`p-0 overflow-hidden border-0 shadow-xl bg-[#1e1e1e] flex flex-col ${
-        isFullScreen ? "h-full rounded-none" : ""
+    <div className={`flex flex-col gap-6 w-full mx-auto transition-all duration-300 ${isFullScreen
+      ? "fixed inset-0 z-50 h-[100dvh] w-[100dvw] bg-[#1e1e1e] p-4"
+      : "max-w-6xl"
       }`}>
+      <Card className={`p-0 overflow-hidden border-0 shadow-xl bg-[#1e1e1e] flex flex-col ${isFullScreen ? "h-full rounded-none" : ""
+        }`}>
         {/* Toolbar */}
         <div className="flex flex-col sm:flex-row items-center justify-between bg-[#2d2d2d] p-3 text-gray-300 gap-3 border-b border-[#3e3e3e] shrink-0">
           <div className="flex items-center gap-4 w-full sm:w-auto">
@@ -110,11 +124,33 @@ export default function CodeEditor() {
             </select>
           </div>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto">
+          <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto">
+            <div className="flex items-center gap-2 mr-2 border-r border-[#444] pr-2">
+              <Settings size={16} className="text-gray-500" />
+              <select
+                value={fontSize}
+                onChange={(e) => setFontSize(Number(e.target.value))}
+                className="bg-[#3e3e3e] border border-[#555] rounded-md px-2 py-1 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-blue-500"
+                title="Font Size"
+              >
+                {FONT_SIZES.map(size => (
+                  <option key={size} value={size}>{size}px</option>
+                ))}
+              </select>
+            </div>
+
+            <button
+              onClick={formatCode}
+              className="p-2 hover:bg-[#3e3e3e] rounded-md transition-colors text-blue-400 hover:text-blue-300"
+              title="Prettify (Format Code)"
+            >
+              <Wand2 size={16} />
+            </button>
+
             <button
               onClick={() => {
-                 setCode(language.defaultCode);
-                 setOutput("");
+                setCode(language.defaultCode);
+                setOutput("");
               }}
               className="p-2 hover:bg-[#3e3e3e] rounded-md transition-colors"
               title="Reset Code"
@@ -138,11 +174,10 @@ export default function CodeEditor() {
             <Button
               onClick={runCode}
               disabled={isRunning}
-              className={`flex items-center gap-2 px-6 py-2 rounded-lg font-semibold transition-all ${
-                isRunning
-                  ? "bg-gray-600 cursor-not-allowed text-gray-400"
-                  : "bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-green-900/50"
-              }`}
+              className={`flex items-center gap-2 px-6 py-2 rounded-lg font-semibold transition-all ${isRunning
+                ? "bg-gray-600 cursor-not-allowed text-gray-400"
+                : "bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-green-900/50"
+                }`}
             >
               {isRunning ? (
                 <>Loading...</>
@@ -156,9 +191,8 @@ export default function CodeEditor() {
         </div>
 
         {/* Editor Area */}
-        <div className={`flex flex-col lg:flex-row ${
-          isFullScreen ? "flex-1 h-full min-h-0" : "h-[600px] lg:h-[700px]"
-        }`}>
+        <div className={`flex flex-col lg:flex-row ${isFullScreen ? "flex-1 h-full min-h-0" : "h-[600px] lg:h-[700px]"
+          }`}>
           {/* Monaco Editor */}
           <div className="flex-1 h-1/2 lg:h-full relative min-h-0">
             <Editor
@@ -166,13 +200,20 @@ export default function CodeEditor() {
               language={language.id}
               value={code}
               theme="vs-dark"
+              onMount={handleEditorDidMount}
               onChange={(value) => setCode(value || "")}
               options={{
                 minimap: { enabled: false },
-                fontSize: 14,
+                fontSize: fontSize,
                 scrollBeyondLastLine: false,
                 automaticLayout: true,
                 padding: { top: 16, bottom: 16 },
+                formatOnPaste: true,
+                formatOnType: true,
+                folding: true,
+                foldingStrategy: "indentation",
+                foldingHighlight: true,
+
                 fontFamily: "'Fira Code', 'Consolas', monospace",
               }}
             />
@@ -195,14 +236,8 @@ export default function CodeEditor() {
           </div>
         </div>
       </Card>
-      
-      {!isFullScreen && (
-        <div className="prose dark:prose-invert max-w-none">
-            <p className="text-sm text-[var(--muted)] text-center">
-              Powered by Piston API. Supports limited execution time and resources.
-            </p>
-        </div>
-      )}
+
+
     </div>
   );
 }
