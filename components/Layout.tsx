@@ -54,6 +54,12 @@ export default async function Layout({ children }: { children: React.ReactNode }
             </div>
             <div className="flex items-center gap-6">
               <Link
+                href="/developer"
+                className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors"
+              >
+                Dev
+              </Link>
+              <Link
                 href="/privacy-policy"
                 className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors"
               >
@@ -74,9 +80,9 @@ export default async function Layout({ children }: { children: React.ReactNode }
                 <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Quick Navigation</p>
                 <nav className="flex flex-col gap-3">
                   {quickLinks.map((link: any) => (
-                    <Link 
-                      key={link.slug} 
-                      href={`/tools/${link.slug}`} 
+                    <Link
+                      key={link.slug}
+                      href={`/tools/${link.slug}`}
                       className="text-sm font-medium hover:text-blue-500 transition-colors line-clamp-1"
                     >
                       {link.title}
@@ -115,35 +121,35 @@ export default async function Layout({ children }: { children: React.ReactNode }
           <div className="flex flex-col items-center gap-3 mb-8 pb-8 border-b border-[var(--surface-border)]">
             <p className="text-xs font-semibold text-[var(--muted)] uppercase tracking-widest">Developed by</p>
             <Link href="/developer" className="group flex items-center gap-3 bg-[var(--surface)] pl-2 pr-4 py-2 rounded-full border border-[var(--surface-border)] shadow-sm hover:shadow-md hover:border-[var(--primary)] transition-all">
-               <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 overflow-hidden flex items-center justify-center bg-slate-200 dark:bg-slate-800">
-                 {developer?.image ? (
-                   <img 
-                     src={urlFor(developer.image).width(64).height(64).url()} 
-                     alt={developer.name} 
-                     className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
-                   />
-                 ) : (
-                    <span className="text-xs font-bold text-[var(--muted)]">{developer?.name?.charAt(0) || "R"}</span>
-                 )}
-               </div>
-               <span className="font-medium text-sm group-hover:text-[var(--primary)] transition-colors">{developer?.name || "Rohan"}</span>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 overflow-hidden flex items-center justify-center bg-slate-200 dark:bg-slate-800">
+                {developer?.image ? (
+                  <img
+                    src={urlFor(developer.image).width(64).height(64).url()}
+                    alt={developer.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                  />
+                ) : (
+                  <span className="text-xs font-bold text-[var(--muted)]">{developer?.name?.charAt(0) || "R"}</span>
+                )}
+              </div>
+              <span className="font-medium text-sm group-hover:text-[var(--primary)] transition-colors">{developer?.name || "Rohan"}</span>
             </Link>
             <div className="flex items-center gap-3 text-[var(--muted)] mt-1">
-                 {developer?.socialLinks && developer.socialLinks.map((link: any) => (
-                    <a 
-                      key={link._key}
-                      href={link.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="hover:text-[var(--primary)] transition-colors" 
-                      aria-label={link.platform}
-                    >
-                      {getSocialIcon(link.platform)}
-                    </a>
-                 ))}
-                 {!developer?.socialLinks && (
-                   <span className="text-xs text-[var(--muted)]">Connect with me</span>
-                 )}
+              {developer?.socialLinks && developer.socialLinks.map((link: any) => (
+                <a
+                  key={link._key}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--primary)] transition-colors"
+                  aria-label={link.platform}
+                >
+                  {getSocialIcon(link.platform)}
+                </a>
+              ))}
+              {!developer?.socialLinks && (
+                <span className="text-xs text-[var(--muted)]">Connect with me</span>
+              )}
             </div>
           </div>
 
@@ -156,7 +162,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
         </div>
       </footer>
 
-     
+
     </div>
   );
 }
