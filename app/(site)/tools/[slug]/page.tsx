@@ -18,6 +18,20 @@ export async function generateStaticParams() {
 }
 
 async function getToolBySlug(slug: string) {
+  switch (slug) {
+    case 'qr-code-generator':
+      return {
+        title: "QR Code Generator",
+        shortDescription: "Generate QR codes for URLs, text, email, and phone numbers.",
+        slug: { current: "qr-code-generator" },
+        showAdsense: true,
+        seo: {
+          title: "Free Online QR Code Generator",
+          description: "Create custom QR codes for free. Supports links, text, email, and phone numbers.",
+          keywords: ["qr code generator", "create qr code", "free qr code", "online qr tools"]
+        }
+      };
+  }
   const query = `*[_type == "tool" && slug.current == $slug][0]`;
   const tool = await sanityClient.fetch(query, { slug });
   return tool;
@@ -141,6 +155,7 @@ import HTMLMinifier from "../../../../components/HTMLMinifier";
 import JSONFormatter from "../../../../components/JSONFormatter";
 import CodeEditor from "../../../../components/CodeEditor";
 import ImageCompressor from "../../../../components/ImageCompressor";
+import QRCodeGenerator from "../../../../components/QRCodeGenerator";
 
 const TOOLS: Record<string, React.JSX.Element> = {
   "emi-calculator": <EMICalculator />,
@@ -157,6 +172,7 @@ const TOOLS: Record<string, React.JSX.Element> = {
   "json-formatter": <JSONFormatter />,
   "code-editor": <CodeEditor />,
   "image-compressor": <ImageCompressor />,
+  "qr-code-generator": <QRCodeGenerator />,
 };
 
 function ToolRenderer({ slug }: { slug: string }) {
