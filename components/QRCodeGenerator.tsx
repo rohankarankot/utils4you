@@ -75,7 +75,7 @@ export default function QRCodeGenerator() {
                         QR Code Generator
                     </h1>
 
-                    <div className="flex gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-x-auto">
+                    <div className="grid grid-cols-2 gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
                         <TypeButton
                             active={type === "url"}
                             icon={<Link size={18} />}
