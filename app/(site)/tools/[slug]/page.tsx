@@ -127,24 +127,33 @@ export default async function ToolPage({
   );
 }
 
-// Map slug to the actual calculator component
-import EMICalculator from "../../../../components/EMICalculator";
-import GSTCalculator from "../../../../components/GSTCalculator";
-import SIPCalculator from "../../../../components/SIPCalculator";
-import AgeCalculator from "../../../../components/AgeCalculator";
-import WordCounter from "../../../../components/WordCounter";
-import CharacterCounter from "../../../../components/CharacterCounter";
-import CaseConverter from "../../../../components/CaseConverter";
-import SlugGenerator from "../../../../components/SlugGenerator";
-import BMICalculator from "../../../../components/BMICalculator";
-import HTMLMinifier from "../../../../components/HTMLMinifier";
-import JSONFormatter from "../../../../components/JSONFormatter";
-import CodeEditor from "../../../../components/CodeEditor";
-import ImageCompressor from "../../../../components/ImageCompressor";
-import QRCodeGenerator from "../../../../components/QRCodeGenerator";
-import ImageToText from "../../../../components/ImageToText";
+import dynamic from "next/dynamic";
+import { Loader2 } from "lucide-react";
 
-const TOOLS: Record<string, React.JSX.Element> = {
+const Loading = () => (
+  <div className="flex items-center justify-center p-12">
+    <Loader2 className="animate-spin text-[var(--primary)]" size={32} />
+  </div>
+);
+
+// Dynamic imports for heavy tool components
+const EMICalculator = dynamic(() => import("../../../../components/EMICalculator"), { loading: () => <Loading /> });
+const GSTCalculator = dynamic(() => import("../../../../components/GSTCalculator"), { loading: () => <Loading /> });
+const SIPCalculator = dynamic(() => import("../../../../components/SIPCalculator"), { loading: () => <Loading /> });
+const AgeCalculator = dynamic(() => import("../../../../components/AgeCalculator"), { loading: () => <Loading /> });
+const WordCounter = dynamic(() => import("../../../../components/WordCounter"), { loading: () => <Loading /> });
+const CharacterCounter = dynamic(() => import("../../../../components/CharacterCounter"), { loading: () => <Loading /> });
+const CaseConverter = dynamic(() => import("../../../../components/CaseConverter"), { loading: () => <Loading /> });
+const SlugGenerator = dynamic(() => import("../../../../components/SlugGenerator"), { loading: () => <Loading /> });
+const BMICalculator = dynamic(() => import("../../../../components/BMICalculator"), { loading: () => <Loading /> });
+const HTMLMinifier = dynamic(() => import("../../../../components/HTMLMinifier"), { loading: () => <Loading /> });
+const JSONFormatter = dynamic(() => import("../../../../components/JSONFormatter"), { loading: () => <Loading /> });
+const CodeEditor = dynamic(() => import("../../../../components/CodeEditor"), { loading: () => <Loading /> });
+const ImageCompressor = dynamic(() => import("../../../../components/ImageCompressor"), { loading: () => <Loading /> });
+const QRCodeGenerator = dynamic(() => import("../../../../components/QRCodeGenerator"), { loading: () => <Loading /> });
+const ImageToText = dynamic(() => import("../../../../components/ImageToText"), { loading: () => <Loading /> });
+
+const TOOLS: Record<string, React.ReactNode> = {
   "emi-calculator": <EMICalculator />,
   "gst-calculator": <GSTCalculator />,
   "sip-calculator": <SIPCalculator />,

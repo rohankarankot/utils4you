@@ -1,9 +1,22 @@
 import React from "react";
 import Script from "next/script";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Layout from "../components/Layout";
 
 import { generateSiteMetadata, getSiteConfig } from "../lib/seo";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export async function generateMetadata() {
   return await generateSiteMetadata("/");
@@ -23,7 +36,7 @@ export default async function RootLayout({
   const adsenseId = config?.integrations?.adsenseId || "ca-pub-4316956546209623";
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body className="antialiased">
         <Script
           async
