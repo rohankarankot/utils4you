@@ -20,7 +20,6 @@ export default function QRCodeGenerator() {
     // Customization State
     const [fgColor, setFgColor] = useState("#000000");
     const [bgColor, setBgColor] = useState("#ffffff");
-    const [logoUrl, setLogoUrl] = useState<string | null>(null);
     const [logoFile, setLogoFile] = useState<File | null>(null);
 
     const qrRef = useRef<HTMLDivElement>(null);
@@ -45,15 +44,11 @@ export default function QRCodeGenerator() {
         const file = e.target.files?.[0];
         if (file) {
             setLogoFile(file);
-            const url = URL.createObjectURL(file);
-            setLogoUrl(url);
         }
     };
 
     const handleRemoveLogo = () => {
         setLogoFile(null);
-        if (logoUrl) URL.revokeObjectURL(logoUrl);
-        setLogoUrl(null);
     };
 
     const downloadQR = () => {
@@ -190,34 +185,7 @@ export default function QRCodeGenerator() {
                             </div>
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-medium mb-2">Logo Overlay</label>
-                            {!logoUrl ? (
-                                <div className="border border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-4 text-center">
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        onChange={handleLogoUpload}
-                                        className="hidden"
-                                        id="logo-upload"
-                                    />
-                                    <label htmlFor="logo-upload" className="cursor-pointer flex flex-col items-center gap-2 text-slate-500 hover:text-primary-600 transition-colors">
-                                        <ImageIcon size={24} />
-                                        <span className="text-sm">Click to upload logo</span>
-                                    </label>
-                                </div>
-                            ) : (
-                                <div className="flex items-center gap-4 bg-slate-50 dark:bg-slate-900 p-3 rounded-lg">
-                                    <img src={logoUrl} alt="Logo" className="w-12 h-12 object-contain rounded bg-white" />
-                                    <div className="flex-1 overflow-hidden">
-                                        <p className="text-sm font-medium truncate">{logoFile?.name}</p>
-                                    </div>
-                                    <button onClick={handleRemoveLogo} className="text-red-500 hover:bg-red-50 p-2 rounded-lg transition-colors">
-                                        <Trash2 size={18} />
-                                    </button>
-                                </div>
-                            )}
-                        </div>
+
                     </Card>
                 </div>
 
@@ -231,8 +199,8 @@ export default function QRCodeGenerator() {
                             includeMargin={true}
                             fgColor={fgColor}
                             bgColor={bgColor}
-                            imageSettings={logoUrl ? {
-                                src: logoUrl,
+                            imageSettings={logoFile ? {
+                                src: URL.createObjectURL(logoFile),
                                 height: 48,
                                 width: 48,
                                 excavate: true,
@@ -263,8 +231,8 @@ function TypeButton({ active, icon, label, onClick }: { active: boolean; icon: R
         <button
             onClick={onClick}
             className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap ${active
-                    ? "bg-white dark:bg-slate-700 shadow-sm text-primary-600 dark:text-primary-400"
-                    : "text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700/50"
+                ? "bg-white dark:bg-slate-700 shadow-sm text-primary-600 dark:text-primary-400"
+                : "text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700/50"
                 }`}
         >
             {icon}

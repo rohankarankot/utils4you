@@ -18,20 +18,7 @@ export async function generateStaticParams() {
 }
 
 async function getToolBySlug(slug: string) {
-  switch (slug) {
-    case 'qr-code-generator':
-      return {
-        title: "QR Code Generator",
-        shortDescription: "Generate QR codes for URLs, text, email, and phone numbers.",
-        slug: { current: "qr-code-generator" },
-        showAdsense: true,
-        seo: {
-          title: "Free Online QR Code Generator",
-          description: "Create custom QR codes for free. Supports links, text, email, and phone numbers.",
-          keywords: ["qr code generator", "create qr code", "free qr code", "online qr tools"]
-        }
-      };
-  }
+
   const query = `*[_type == "tool" && slug.current == $slug][0]`;
   const tool = await sanityClient.fetch(query, { slug });
   return tool;
