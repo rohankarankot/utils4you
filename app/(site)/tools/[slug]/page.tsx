@@ -52,7 +52,7 @@ export default async function ToolPage({
 }) {
   const slug = params.slug;
   const tool = await getToolBySlug(slug);
-  
+
   if (!tool)
     return (
       <main>
@@ -67,9 +67,9 @@ export default async function ToolPage({
     <main>
       <h1 className="text-3xl font-bold mb-4">{heroTitle}</h1>
       {heroSubtitle && <p className="text-lg text-[var(--muted)] mb-6">{heroSubtitle}</p>}
-      
+
       {tool.showAdsense !== false && <Adsense className="mb-6" slot="8795533518" />}
-      
+
       {/* Tool Component Placeholder - will be mapped below */}
       <ToolRenderer slug={slug} />
 
@@ -86,7 +86,7 @@ export default async function ToolPage({
           </div>
         </section>
       )}
-      
+
       {tool.faqs && tool.faqs.length > 0 && (
         <section className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
@@ -117,11 +117,11 @@ export default async function ToolPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(tool)) }}
       />
 
-      <SocialShare 
-        title={`${tool.title} | OmniTools`} 
-        url={`https://mydailytools-pi.vercel.app/tools/${tool.slug.current}`} 
+      <SocialShare
+        title={`${tool.title} | OmniTools`}
+        url={`https://mydailytools-pi.vercel.app/tools/${tool.slug.current}`}
       />
-      
+
       <RelatedTools currentSlug={tool.slug.current} />
     </main>
   );
@@ -140,23 +140,25 @@ import BMICalculator from "../../../../components/BMICalculator";
 import HTMLMinifier from "../../../../components/HTMLMinifier";
 import JSONFormatter from "../../../../components/JSONFormatter";
 import CodeEditor from "../../../../components/CodeEditor";
+import ImageCompressor from "../../../../components/ImageCompressor";
+
+const TOOLS: Record<string, React.JSX.Element> = {
+  "emi-calculator": <EMICalculator />,
+  "gst-calculator": <GSTCalculator />,
+  "sip-calculator": <SIPCalculator />,
+  "age-calculator": <AgeCalculator />,
+  "word-counter": <WordCounter />,
+  "character-counter": <CharacterCounter />,
+  "case-converter": <CaseConverter />,
+  "slug-generator": <SlugGenerator />,
+  "remove-extra-spaces": <WordCounter />,
+  "bmi-calculator": <BMICalculator />,
+  "html-minify": <HTMLMinifier />,
+  "json-formatter": <JSONFormatter />,
+  "code-editor": <CodeEditor />,
+  "image-compressor": <ImageCompressor />,
+};
 
 function ToolRenderer({ slug }: { slug: string }) {
-  switch (slug) {
-    case "emi-calculator": return <EMICalculator />;
-    case "gst-calculator": return <GSTCalculator />;
-    case "sip-calculator": return <SIPCalculator />;
-    case "age-calculator": return <AgeCalculator />;
-    case "word-counter": return <WordCounter />;
-    case "character-counter": return <CharacterCounter />;
-    case "case-converter": return <CaseConverter />;
-    case "slug-generator": return <SlugGenerator />;
-    case "remove-extra-spaces": return <WordCounter />;
-    case "bmi-calculator": return <BMICalculator />;
-    case "html-minify": return <HTMLMinifier />;
-    case "json-formatter": return <JSONFormatter />;
-    case "code-editor": return <CodeEditor />;
-    // Fallback or other tools...
-    default: return null;
-  }
+  return TOOLS[slug] || null;
 }
