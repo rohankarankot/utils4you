@@ -12,6 +12,7 @@
     "next-sitemap": "next-sitemap"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.9",
     "@monaco-editor/react": "^4.7.0",
     "@sanity/client": "^7.13.2",
     "@sanity/image-url": "^2.0.2",

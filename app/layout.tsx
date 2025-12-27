@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Layout from "../components/Layout";
+import InstallPrompt from "../components/InstallPrompt";
 
 import { generateSiteMetadata, getSiteConfig } from "../lib/seo";
 
@@ -19,7 +20,19 @@ const outfit = Outfit({
 });
 
 export async function generateMetadata() {
-  return await generateSiteMetadata("/");
+  const metadata = await generateSiteMetadata("/");
+  return {
+    ...metadata,
+    manifest: "/manifest.json",
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "default",
+      title: "OmniTools",
+    },
+    formatDetection: {
+      telephone: false,
+    },
+  };
 }
 
 export const viewport = {
@@ -44,6 +57,7 @@ export default async function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        <InstallPrompt />
         {children}
       </body>
     </html>
