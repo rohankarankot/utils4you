@@ -27,7 +27,10 @@ export async function generateStaticParams() {
 }
 
 async function getToolBySlug(slug: string) {
-  const query = `*[_type == "tool" && slug.current == $slug][0]`;
+  const query = `*[_type == "tool" && slug.current == $slug][0] {
+    ...,
+    "ogImage": seo.ogImage.asset->url
+  }`;
   const tool = await sanityClient.fetch(query, { slug });
   return tool;
 }
@@ -50,7 +53,14 @@ export async function generateMetadata({
     openGraph: {
       title: tool.seo?.title || tool.title,
       description: tool.seo?.description || tool.shortDescription,
+      images: tool.ogImage ? [{ url: tool.ogImage }] : [{ url: "/logo.png" }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: tool.seo?.title || tool.title,
+      description: tool.seo?.description || tool.shortDescription,
+      images: tool.ogImage ? [tool.ogImage] : ["/logo.png"],
+    }
   };
 }
 

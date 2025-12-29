@@ -4,6 +4,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Layout from "../components/Layout";
 import InstallPrompt from "../components/InstallPrompt";
+import GlobalSchema from "../components/GlobalSchema";
 
 import { generateSiteMetadata, getSiteConfig } from "../lib/seo";
 
@@ -61,6 +62,7 @@ export default async function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        <GlobalSchema />
         <InstallPrompt />
         {children}
       </body>
