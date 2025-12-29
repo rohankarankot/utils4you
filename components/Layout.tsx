@@ -9,7 +9,8 @@ import { sanityClient, urlFor } from "../lib/sanityClient";
 async function getQuickNav() {
   const query = `*[_type == "tool"] | order(_createdAt desc) {
     title,
-    "slug": slug.current
+    "slug": slug.current,
+    category
   }`;
   return await sanityClient.fetch(query);
 }

@@ -52,7 +52,7 @@ export default async function ToolsIndex() {
 
       <div className="space-y-16">
         {categories.map((cat) => (
-          <section key={cat}>
+          <section key={cat} id={cat}>
             <div className="flex flex-col gap-2 mb-8">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white capitalize">
                 {CATEGORY_LABELS[cat] || cat.replace(/-/g, ' ')}

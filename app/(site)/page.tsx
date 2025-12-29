@@ -57,7 +57,7 @@ export default function Home() {
           <div className="w-12 h-12 rounded-xl bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
           </div>
-          <h2 className="text-2xl font-bold mb-3">India Calculators</h2>
+          <h2 className="text-2xl font-bold mb-3">Financial Calculators for India (EMI, GST, SIP) within Online Productivity Tools</h2>
           <p className="text-[var(--muted)] leading-relaxed mb-6">
             Smart financial tools: EMI, SIP, and GST calculators
             specifically tuned for the Indian economy.
