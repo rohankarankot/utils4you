@@ -77,8 +77,8 @@ export default function InstallPrompt() {
                     </button>
 
                     <div className="flex items-start gap-4">
-                        <div className="bg-gradient-to-br from-primary-500 to-purple-600 p-3 rounded-xl shadow-lg shrink-0">
-                            <Download className="text-white" size={24} />
+                        <div className="w-12 h-12 rounded-xl border border-[var(--surface-border)] shadow-lg overflow-hidden shrink-0 bg-white">
+                            <img src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" />
                         </div>
 
                         <div className="flex-1 space-y-3">
