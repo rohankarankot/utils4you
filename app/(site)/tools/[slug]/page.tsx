@@ -6,6 +6,15 @@ import { breadcrumbJsonLd } from "./breadcrumbJsonLd";
 import { sanityClient } from "../../../../lib/sanityClient";
 import SocialShare from "../../../../components/SocialShare";
 import RelatedTools from "../../../../components/RelatedTools";
+import Breadcrumbs from "../../../../components/Breadcrumbs";
+
+const CATEGORY_LABELS: Record<string, string> = {
+  "text-tools": "Text Tools",
+  "financial-calculators": "Financial Calculators",
+  "health-calculators": "Health Tools",
+  "developer-tools": "Dev Tools",
+  "image-tools": "Image Tools",
+};
 
 export const revalidate = 86400; // ISR
 
@@ -63,8 +72,22 @@ export default async function ToolPage({
   const heroTitle = tool.heroTitle || tool.title;
   const heroSubtitle = tool.heroSubtitle || tool.shortDescription;
 
+  const breadcrumbItems: { label: string; href?: string }[] = [
+    { label: "Tools", href: "/tools" },
+  ];
+
+  if (tool.category) {
+    breadcrumbItems.push({
+      label: CATEGORY_LABELS[tool.category] || tool.category.replace(/-/g, ' '),
+      href: `/tools#${tool.category}`
+    });
+  }
+
+  breadcrumbItems.push({ label: tool.title });
+
   return (
     <main>
+      <Breadcrumbs items={breadcrumbItems} />
       <h1 className="text-3xl font-bold mb-4">{heroTitle}</h1>
       {heroSubtitle && <p className="text-lg text-[var(--muted)] mb-6">{heroSubtitle}</p>}
 
