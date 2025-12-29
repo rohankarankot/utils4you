@@ -27,7 +27,8 @@ export default {
       name: 'seo', type: 'object', fields: [
         { name: 'title', type: 'string' },
         { name: 'description', type: 'text' },
-        { name: 'keywords', type: 'array', of: [{ type: 'string' }] }
+        { name: 'keywords', type: 'array', of: [{ type: 'string' }] },
+        { name: 'ogImage', type: 'image', title: 'OG Image', description: 'Social sharing image (1200x630px recommended)' }
       ]
     },
     { name: 'canonicalUrl', type: 'url' },

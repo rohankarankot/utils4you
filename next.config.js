@@ -5,6 +5,28 @@ const nextConfig = {
   experimental: {
     esmExternals: false,
   },
+  async headers() {
+    return [
+      {
+        source: "/(.*)\\.(png|jpg|jpeg|svg|webp|ico)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/manifest.json",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 const withPWA = require("@ducanh2912/next-pwa").default({
