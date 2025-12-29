@@ -1,6 +1,6 @@
 {
-    "name": "OmniTools - Daily Utilities",
-    "short_name": "OmniTools",
+    "name": "Utils4You - Daily Utilities",
+    "short_name": "Utils4You",
     "description": "A collection of useful daily tools and calculators.",
     "start_url": "/",
     "display": "standalone",

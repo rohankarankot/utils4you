@@ -24,12 +24,12 @@ export default function Home() {
       </section>
 
       <section className="mt-20 prose dark:prose-invert max-w-none border-t border-slate-100 dark:border-slate-800 pt-12">
-        <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Why Professionals Choose OmniTools</h2>
+        <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Why Professionals Choose Utils4You</h2>
         <p className="text-lg leading-relaxed text-[var(--muted)]">
-          OmniTools is designed for those who value speed and privacy. Our platform provides a curated collection
+          Utils4You is designed for those who value speed and privacy. Our platform provides a curated collection
           of essential utilities that run entirely in your browser. This means your data never touches our
           servers, giving you 100% security for your financial and text-based tasks. Whether you are
-          calculating complex loan EMIs or optimizing text for SEO, OmniTools is your reliable daily partner.
+          calculating complex loan EMIs or optimizing text for SEO, Utils4You is your reliable daily partner.
         </p>
       </section>
 

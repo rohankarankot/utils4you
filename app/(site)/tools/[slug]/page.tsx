@@ -36,7 +36,7 @@ export async function generateMetadata({
     description: tool.seo?.description || tool.shortDescription,
     keywords: tool.seo?.keywords || [],
     alternates: {
-      canonical: tool.canonicalUrl || `https://mydailytools-pi.vercel.app/tools/${params.slug}`,
+      canonical: tool.canonicalUrl || `https://www.utils4you.in/tools/${params.slug}`,
     },
     openGraph: {
       title: tool.seo?.title || tool.title,
@@ -118,8 +118,8 @@ export default async function ToolPage({
       />
 
       <SocialShare
-        title={`${tool.title} | OmniTools`}
-        url={`https://mydailytools-pi.vercel.app/tools/${tool.slug.current}`}
+        title={`${tool.title} | Utils4You`}
+        url={`https://www.utils4you.in/tools/${tool.slug.current}`}
       />
 
       <RelatedTools currentSlug={tool.slug.current} />

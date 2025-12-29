@@ -1,5 +1,5 @@
-export function breadcrumbJsonLd(tool: any){
-  const baseUrl = 'https://mydailytools-pi.vercel.app';
+export function breadcrumbJsonLd(tool: any) {
+  const baseUrl = 'https://www.utils4you.in';
   const itemList = [
     { "@type": "ListItem", position: 1, name: 'Home', item: baseUrl },
     { "@type": "ListItem", position: 2, name: 'Tools', item: `${baseUrl}/tools` },

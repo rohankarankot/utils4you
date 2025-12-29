@@ -27,7 +27,7 @@ export async function getSiteConfig() {
 
 export async function getPageMetadata(path: string) {
   const slug = path === "/" ? "home" : path.replace(/^\//, "");
-  
+
   // SEO is now unified in the generic "page" document
   const query = `*[_type == "page" && slug.current == $slug][0].seo {
     title,
@@ -44,21 +44,21 @@ export async function generateSiteMetadata(path: string = "/"): Promise<Metadata
 
   if (!config) {
     return {
-      title: "OmniTools",
+      title: "Utils4You",
       description: "Fast, accessible, and high-performance online utility tools.",
     };
   }
 
-  const title = pageSEO?.title || config.seo?.defaultTitle || config.siteName || "OmniTools";
+  const title = pageSEO?.title || config.seo?.defaultTitle || config.siteName || "Utils4You";
   const description = pageSEO?.description || config.seo?.description || config.siteDescription;
   const keywords = pageSEO?.keywords || config.seo?.keywords || [];
   const ogImage = pageSEO?.ogImage || config.seo?.ogImage;
 
   return {
-    metadataBase: config.metadataBase ? new URL(config.metadataBase) : new URL("https://mydailytools-pi.vercel.app/"),
+    metadataBase: config.metadataBase ? new URL(config.metadataBase) : new URL("https://www.utils4you.in/"),
     title: {
       default: title,
-      template: config.seo?.titleTemplate || `%s | ${config.siteName || "OmniTools"}`,
+      template: config.seo?.titleTemplate || `%s | ${config.siteName || "Utils4You"}`,
     },
     description,
     keywords,

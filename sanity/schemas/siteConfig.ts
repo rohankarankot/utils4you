@@ -5,13 +5,13 @@ export default {
   fields: [
     { name: "siteName", title: "Site Name", type: "string" },
     { name: "siteDescription", title: "Site Description", type: "text" },
-    { name: "metadataBase", title: "Metadata Base URL", type: "url", description: "e.g. https://mydailytools.com" },
+    { name: "metadataBase", title: "Metadata Base URL", type: "url", description: "e.g. https://www.utils4you.in" },
     {
       name: "seo",
       title: "Default SEO",
       type: "object",
       fields: [
-        { name: "titleTemplate", title: "Title Template", type: "string", description: "e.g. %s | OmniTools" },
+        { name: "titleTemplate", title: "Title Template", type: "string", description: "e.g. %s | Utils4You" },
         { name: "defaultTitle", title: "Default Title", type: "string" },
         { name: "description", title: "SEO Description", type: "text" },
         { name: "keywords", title: "Keywords", type: "array", of: [{ type: "string" }] },
@@ -23,7 +23,7 @@ export default {
       title: "Social Media",
       type: "object",
       fields: [
-        { name: "twitterHandle", title: "Twitter Handle", type: "string", description: "e.g. @omnitools" },
+        { name: "twitterHandle", title: "Twitter Handle", type: "string", description: "e.g. @utils4you" },
         { name: "twitterCardType", title: "Twitter Card Type", type: "string", options: { list: ["summary", "summary_large_image"] }, initialValue: "summary_large_image" },
       ],
     },

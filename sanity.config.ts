@@ -12,8 +12,8 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
 export default defineConfig({
   basePath: "/studio",
-  name: "omniTools-studio",
-  title: "OmniTools Studio",
+  name: "utils4you-studio",
+  title: "Utils4You Studio",
   projectId,
   dataset,
   plugins: [deskTool()],

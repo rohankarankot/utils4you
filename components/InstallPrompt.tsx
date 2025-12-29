@@ -83,7 +83,7 @@ export default function InstallPrompt() {
 
                         <div className="flex-1 space-y-3">
                             <div>
-                                <h3 className="font-bold text-lg">Install OmniTools</h3>
+                                <h3 className="font-bold text-lg">Install Utils4You</h3>
                                 <p className="text-sm text-slate-500 leading-tight mt-1">
                                     {isIOS
                                         ? "Install this app on your iPhone for a better experience."
