@@ -27,7 +27,7 @@ export async function generateMetadata() {
     appleWebApp: {
       capable: true,
       statusBarStyle: "default",
-      title: "OmniTools",
+      title: "Utils4You",
     },
     formatDetection: {
       telephone: false,

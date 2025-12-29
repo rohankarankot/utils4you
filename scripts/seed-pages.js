@@ -20,15 +20,15 @@ const pages = [
     slug: { _type: 'slug', current: 'privacy-policy' },
     lastUpdated: '2023-12-24',
     seo: {
-      title: 'Privacy Policy – Your Data & Local Security | OmniTools',
-      description: 'Read our commitment to your privacy. Learn how OmniTools processes all calculator and text data locally in your browser for maximum security.'
+      title: 'Privacy Policy – Your Data & Local Security | Utils4You',
+      description: 'Read our commitment to your privacy. Learn how Utils4You processes all calculator and text data locally in your browser for maximum security.'
     },
     highlights: [
       {
         _key: 'h1',
         icon: 'Lock',
         title: 'Local-Only Processing',
-        content: 'Unlike traditional online tools, OmniTools utilizes modern browser-based technology. This means your text, loan details, and personal calculations are processed entirely on your device. We do not store, see, or transmit your calculation data to our servers.'
+        content: 'Unlike traditional online tools, Utils4You utilizes modern browser-based technology. This means your text, loan details, and personal calculations are processed entirely on your device. We do not store, see, or transmit your calculation data to our servers.'
       },
       {
         _key: 'h2',
@@ -82,7 +82,7 @@ const pages = [
       {
         _key: 'b7',
         _type: 'block',
-        children: [{ _key: 'c7', _type: 'span', text: 'Like many other Web sites, OmniTools makes use of log files. The information inside the log files includes internet protocol (IP) addresses, type of browser, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks to analyze trends, administer the site, track user’s movement around the site, and gather demographic information. IP addresses and other such information are not linked to any information that is personally identifiable.' }]
+        children: [{ _key: 'c7', _type: 'span', text: 'Like many other Web sites, Utils4You makes use of log files. The information inside the log files includes internet protocol (IP) addresses, type of browser, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks to analyze trends, administer the site, track user’s movement around the site, and gather demographic information. IP addresses and other such information are not linked to any information that is personally identifiable.' }]
       },
       {
         _key: 'b8',
@@ -110,8 +110,8 @@ const pages = [
     slug: { _type: 'slug', current: 'terms-and-conditions' },
     lastUpdated: '2023-12-24',
     seo: {
-      title: 'Terms and Conditions – Usage Guidelines | OmniTools',
-      description: 'Read the Terms and Conditions of OmniTools. Understand your rights, our liability disclaimers, and the guidelines for using our free online utility tools.'
+      title: 'Terms and Conditions – Usage Guidelines | Utils4You',
+      description: 'Read the Terms and Conditions of Utils4You. Understand your rights, our liability disclaimers, and the guidelines for using our free online utility tools.'
     },
     highlights: [
       {
@@ -124,7 +124,7 @@ const pages = [
         _key: 'th2',
         icon: 'Scale',
         title: 'Limitation of Liability',
-        content: 'OmniTools and its owners shall not be held liable for any direct or indirect damages arising from the use or inability to use our platform or its tools.'
+        content: 'Utils4You and its owners shall not be held liable for any direct or indirect damages arising from the use or inability to use our platform or its tools.'
       },
       {
         _key: 'th3',
@@ -143,7 +143,7 @@ const pages = [
       {
         _key: 'tb2',
         _type: 'block',
-        children: [{ _key: 'tc2', _type: 'span', text: 'By accessing and using [https://mydailytools-pi.vercel.app/](https://mydailytools-pi.vercel.app/), you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you are prohibited from using or accessing this site.' }]
+        children: [{ _key: 'tc2', _type: 'span', text: 'By accessing and using [https://www.utils4you.in/](https://www.utils4you.in/), you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you are prohibited from using or accessing this site.' }]
       },
       {
         _key: 'tb3',
@@ -154,7 +154,7 @@ const pages = [
       {
         _key: 'tb4',
         _type: 'block',
-        children: [{ _key: 'tc4', _type: 'span', text: 'Permission is granted to temporarily use the tools on OmniTools for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:' }]
+        children: [{ _key: 'tc4', _type: 'span', text: 'Permission is granted to temporarily use the tools on Utils4You for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:' }]
       },
       {
         _key: 'tb5',
@@ -200,7 +200,7 @@ const pages = [
       {
         _key: 'tb12',
         _type: 'block',
-        children: [{ _key: 'tc12', _type: 'span', text: 'The content, structure, design, and code of OmniTools are the intellectual property of its owners. Unauthorized reproduction or distribution of any part of this website is strictly prohibited.' }]
+        children: [{ _key: 'tc12', _type: 'span', text: 'The content, structure, design, and code of Utils4You are the intellectual property of its owners. Unauthorized reproduction or distribution of any part of this website is strictly prohibited.' }]
       },
       {
         _key: 'tb13',
@@ -211,7 +211,7 @@ const pages = [
       {
         _key: 'tb14',
         _type: 'block',
-        children: [{ _key: 'tc14', _type: 'span', text: 'OmniTools reserves the right to revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.' }]
+        children: [{ _key: 'tc14', _type: 'span', text: 'Utils4You reserves the right to revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.' }]
       }
     ]
   },
@@ -221,8 +221,8 @@ const pages = [
     title: 'About Us',
     slug: { _type: 'slug', current: 'about' },
     seo: {
-      title: 'About Us – Our Mission & Values | OmniTools',
-      description: 'Learn about OmniTools, our commitment to privacy, speed, and providing high-quality free online utility tools for Indian users.'
+      title: 'About Us – Our Mission & Values | Utils4You',
+      description: 'Learn about Utils4You, our commitment to privacy, speed, and providing high-quality free online utility tools for Indian users.'
     },
     highlights: [
       {
@@ -254,7 +254,7 @@ const pages = [
       {
         _key: 'ab2',
         _type: 'block',
-        children: [{ _key: 'ac2', _type: 'span', text: 'OmniTools started as a response to the cluttered and often intrusive landscape of online utility tools. We noticed that many existing calculators and text processors were slow, loaded with intrusive ads, and, most importantly, often lacked transparent privacy practices.' }]
+        children: [{ _key: 'ac2', _type: 'span', text: 'Utils4You started as a response to the cluttered and often intrusive landscape of online utility tools. We noticed that many existing calculators and text processors were slow, loaded with intrusive ads, and, most importantly, often lacked transparent privacy practices.' }]
       },
       {
         _key: 'ab3',
@@ -264,7 +264,7 @@ const pages = [
     ],
     footer: {
       title: 'Start Being More Productive',
-      description: 'Join thousands of users who trust OmniTools for their daily utility needs.',
+      description: 'Join thousands of users who trust Utils4You for their daily utility needs.',
       buttonText: 'Explore All Tools',
       buttonLink: '/tools'
     }
@@ -275,9 +275,9 @@ const pages = [
     title: 'Home',
     slug: { _type: 'slug', current: 'home' },
     seo: {
-      title: 'OmniTools – Free Online Tools for Daily Productivity',
-      description: 'Experience the power of OmniTools. Fast, secure, and private online tools for text processing, financial calculations, and professional utility.',
-      keywords: ['OmniTools', 'free online tools', 'best utility tools', 'text tools', 'financial calculators India'],
+      title: 'Utils4You – Free Online Tools for Daily Productivity',
+      description: 'Experience the power of Utils4You. Fast, secure, and private online tools for text processing, financial calculations, and professional utility.',
+      keywords: ['Utils4You', 'free online tools', 'best utility tools', 'text tools', 'financial calculators India'],
     }
   },
   {
@@ -286,9 +286,9 @@ const pages = [
     title: 'All Tools',
     slug: { _type: 'slug', current: 'tools' },
     seo: {
-      title: 'All Productivity & Financial Tools – OmniTools Utility Hub',
-      description: 'Browse our complete directory of free online utility tools. From GST and EMI calculators to word counters and slug generators, find everything you need for daily productivity on OmniTools.',
-      keywords: ['OmniTools', 'online utility tools', 'financial calculators', 'text processing tools', 'free online calculators', 'productivity tools hub'],
+      title: 'All Productivity & Financial Tools – Utils4You Utility Hub',
+      description: 'Browse our complete directory of free online utility tools. From GST and EMI calculators to word counters and slug generators, find everything you need for daily productivity on Utils4You.',
+      keywords: ['Utils4You', 'online utility tools', 'financial calculators', 'text processing tools', 'free online calculators', 'productivity tools hub'],
     }
   }
 ];

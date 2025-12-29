@@ -42,10 +42,10 @@ export default async function Layout({ children }: { children: React.ReactNode }
             <div className="flex items-center gap-8">
               <Link
                 href="/"
-                aria-label="OmniTools Home"
+                aria-label="Utils4You Home"
                 className="text-2xl font-black text-gradient tracking-tight"
               >
-                OmniTools
+                Utils4You
               </Link>
               <ToolsDropdown tools={quickLinks} />
               <Link href="/about" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
@@ -101,7 +101,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
                 <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">Featured</p>
                 <Adsense className="mb-2" slot="9725471808" />
                 <p className="text-sm text-[var(--muted)] leading-relaxed">
-                  Fast, accessible, and India-focused utilities by OmniTools.
+                  Fast, accessible, and India-focused utilities by Utils4You.
                 </p>
               </div>
             </div>
@@ -154,7 +154,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
           </div>
 
           <p className="text-sm text-[var(--muted)] mb-2">
-            © {new Date().getFullYear()} OmniTools.
+            © {new Date().getFullYear()} Utils4You.
           </p>
           <p className="text-xs text-[var(--muted)]">
             Contact: <a href="mailto:rohan.alwayscodes@gmail.com" className="hover:text-[var(--primary)]">rohan.alwayscodes@gmail.com</a>

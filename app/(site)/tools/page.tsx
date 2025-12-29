@@ -45,7 +45,7 @@ export default async function ToolsIndex() {
           All Productivity Tools & Calculators
         </h1>
         <p className="text-lg text-[var(--muted)] max-w-3xl leading-relaxed">
-          The central hub for all OmniTools utilities. Our collection is built for speed, privacy,
+          The central hub for all Utils4You utilities. Our collection is built for speed, privacy,
           and precise calculations. Select a category below to explore our optimized tools.
         </p>
       </header>
@@ -75,9 +75,9 @@ export default async function ToolsIndex() {
       </div>
 
       <section className="mt-20 prose dark:prose-invert max-w-none border-t border-slate-100 dark:border-slate-800 pt-12">
-        <h2 className="text-2xl font-bold mb-4">Why OmniTools is Your Daily Productivity Partner</h2>
+        <h2 className="text-2xl font-bold mb-4">Why Utils4You is Your Daily Productivity Partner</h2>
         <p>
-          In a world where digital privacy is often compromised, OmniTools offers a secure alternative.
+          In a world where digital privacy is often compromised, Utils4You offers a secure alternative.
           All our tools are optimized for performance, ensuring they load instantly even on slow connections.
           Whether you are an Indian professional calculating GST or a student counting words for an essay,
           our tools provide browser-based processing, meaning your data never leaves your computer.

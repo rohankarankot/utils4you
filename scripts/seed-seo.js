@@ -13,17 +13,17 @@ const client = createClient({
 
 const initialConfig = {
   _type: 'siteConfig',
-  siteName: 'OmniTools',
+  siteName: 'Utils4You',
   siteDescription: 'Fast, accessible, and high-performance online utility tools for Indian users.',
-  metadataBase: 'https://mydailytools-pi.vercel.app/',
+  metadataBase: 'https://www.utils4you.in/',
   seo: {
-    titleTemplate: '%s | OmniTools',
-    defaultTitle: 'OmniTools – Free Online Utility Tools & Calculators',
-    description: 'Fast, accessible, and high-performance online utility tools for Indian users. OmniTools provides calculators, text tools, and more.',
-    keywords: ['online tools', 'EMI calculator', 'SIP calculator', 'GST calculator', 'age calculator', 'text processing', 'OmniTools'],
+    titleTemplate: '%s | Utils4You',
+    defaultTitle: 'Utils4You – Free Online Utility Tools & Calculators',
+    description: 'Fast, accessible, and high-performance online utility tools for Indian users. Utils4You provides calculators, text tools, and more.',
+    keywords: ['online tools', 'EMI calculator', 'SIP calculator', 'GST calculator', 'age calculator', 'text processing', 'Utils4You'],
   },
   social: {
-    twitterHandle: '@omnitools',
+    twitterHandle: '@utils4you',
     twitterCardType: 'summary_large_image',
   },
   integrations: {
