@@ -29,6 +29,10 @@ export async function generateMetadata() {
       statusBarStyle: "default",
       title: "Utils4You",
     },
+    icons: {
+      icon: "/icon-192.png",
+      apple: "/icon-512.png",
+    },
     formatDetection: {
       telephone: false,
     },

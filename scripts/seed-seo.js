@@ -27,7 +27,7 @@ const initialConfig = {
     twitterCardType: 'summary_large_image',
   },
   integrations: {
-    googleVerification: 'ZU9HnTgzLCfpRJSYlE6hx8g-X9IwEq93c-zW42Fn7t0',
+    googleVerification: 'cktMtpro_0b8cGNfuO2EEvYdT70icIKb09PSvgmYJjk',
     adsenseId: 'ca-pub-4316956546209623',
   }
 };

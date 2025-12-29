@@ -43,9 +43,12 @@ export default async function Layout({ children }: { children: React.ReactNode }
               <Link
                 href="/"
                 aria-label="Utils4You Home"
-                className="text-2xl font-black text-gradient tracking-tight"
+                className="flex items-center gap-2 group"
               >
-                Utils4You
+                <div className="w-10 h-10 rounded-lg overflow-hidden border border-[var(--surface-border)] shadow-sm group-hover:shadow-md transition-all">
+                  <img src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" />
+                </div>
+                <span className="text-2xl font-black text-gradient tracking-tight">Utils4You</span>
               </Link>
               <ToolsDropdown tools={quickLinks} />
               <Link href="/about" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">

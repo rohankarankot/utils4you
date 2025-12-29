@@ -63,7 +63,7 @@ export async function generateSiteMetadata(path: string = "/"): Promise<Metadata
     description,
     keywords,
     verification: {
-      google: config.integrations?.googleVerification,
+      google: config.integrations?.googleVerification || "cktMtpro_0b8cGNfuO2EEvYdT70icIKb09PSvgmYJjk",
     },
     alternates: {
       canonical: path === "/" ? "./" : path,
