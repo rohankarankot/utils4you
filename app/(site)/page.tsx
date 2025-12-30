@@ -45,7 +45,7 @@ export default function Home() {
           </p>
           <div className="mt-auto">
             <Link
-              href="/tools/word-counter"
+              href="/tools#text-tools"
               className="btn btn-primary w-full sm:w-auto"
             >
               Explore Text Tools
@@ -64,7 +64,7 @@ export default function Home() {
           </p>
           <div className="mt-auto">
             <Link
-              href="/tools/emi-calculator"
+              href="/tools#financial-calculators"
               className="btn btn-primary w-full sm:w-auto"
             >
               Open Calculators
