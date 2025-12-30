@@ -185,6 +185,7 @@ const CodeEditor = dynamic(() => import("../../../../components/CodeEditor"), { 
 const ImageCompressor = dynamic(() => import("../../../../components/ImageCompressor"), { loading: () => <Loading /> });
 const QRCodeGenerator = dynamic(() => import("../../../../components/QRCodeGenerator"), { loading: () => <Loading /> });
 const ImageToText = dynamic(() => import("../../../../components/ImageToText"), { loading: () => <Loading /> });
+const PasswordGenerator = dynamic(() => import("../../../../components/PasswordGenerator"), { loading: () => <Loading /> });
 
 const TOOLS: Record<string, React.ReactNode> = {
   "emi-calculator": <EMICalculator />,
@@ -203,6 +204,7 @@ const TOOLS: Record<string, React.ReactNode> = {
   "image-compressor": <ImageCompressor />,
   "qr-code-generator": <QRCodeGenerator />,
   "image-to-text": <ImageToText />,
+  "password-generator": <PasswordGenerator />,
 };
 
 function ToolRenderer({ slug }: { slug: string }) {

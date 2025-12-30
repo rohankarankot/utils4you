@@ -9,8 +9,8 @@ Utils4You is a comprehensive collection of modern, fast, and privacy-focused web
 ## ✨ Key Features
 
 - **Text Tools**: Case Converter, Word Counter, Character Counter, Slug Generator.
-- **Developer Tools**: JSON Formatter, HTML Minifier, Code Editor.
-- **Media Tools**: Image Compressor, Image to Text (OCR), QR Code Generator.
+- **Developer Tools**: Code Editor, JSON Formatter, HTML Minifier, Password Generator
+- **Media Tools**: Image Compressor, QR Code Generator, Image to Text (OCR)
 - **Calculators**: EMI Calculator, GST Calculator, SIP Calculator, Age Calculator, BMI Calculator.
 - **SEO Optimized**: Built-in JSON-LD, Breadcrumbs, and high-quality content via Sanity.
 - **Responsive Design**: Premium aesthetics with full dark mode support.
