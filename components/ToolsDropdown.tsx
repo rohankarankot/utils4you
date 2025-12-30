@@ -63,7 +63,7 @@ export default function ToolsDropdown({ tools }: ToolsDropdownProps) {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 mt-2 w-72 bg-[var(--surface)] border border-[var(--surface-border)] rounded-xl shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-200">
+        <div className="absolute top-full left-0 mt-2 w-72 bg-[var(--surface)] border border-[var(--surface-border)] rounded-xl shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-200">
           <div className="max-h-[70vh] overflow-y-auto custom-scrollbar p-2">
             {categories.map((cat) => (
               <div key={cat} className="mb-4 last:mb-0">

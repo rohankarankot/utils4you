@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Button from "./Button";
+import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">(() =>
@@ -37,11 +37,15 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="btn btn-ghost w-10 h-10 p-0 rounded-full border border-[var(--surface-border)] hover:border-[var(--primary)]"
+      className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--surface-border)] hover:border-[var(--primary)] hover:bg-[var(--surface-border)] transition-all"
       aria-pressed={theme === "dark"}
       aria-label="Toggle theme"
     >
-      {theme === "dark" ? "🌙" : "☀️"}
+      {theme === "dark" ? (
+        <Sun size={18} className="text-yellow-400" />
+      ) : (
+        <Moon size={18} className="text-slate-700" />
+      )}
     </button>
   );
 }

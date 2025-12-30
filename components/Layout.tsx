@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Instagram, Linkedin, Github, Globe, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Github, Globe, Twitter, Star } from "lucide-react";
 import Adsense from "./Adsense";
 import ToolsDropdown from "./ToolsDropdown";
 import ThemeToggle from "./ThemeToggle";
@@ -49,12 +49,13 @@ export default async function Layout({ children }: { children: React.ReactNode }
                 <div className="w-10 h-10 rounded-lg overflow-hidden border border-[var(--surface-border)] shadow-sm group-hover:shadow-md transition-all">
                   <img src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" />
                 </div>
-                <span className="text-2xl font-black text-gradient tracking-tight">Utils4You</span>
+                <span className="hidden sm:block text-2xl font-black text-gradient tracking-tight">Utils4You</span>
               </Link>
               <ToolsDropdown tools={quickLinks} />
-              <Link href="/about" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
+              <Link href="/about" className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors">
                 About
               </Link>
+
             </div>
             <div className="flex items-center gap-6">
               <Link
@@ -69,6 +70,17 @@ export default async function Layout({ children }: { children: React.ReactNode }
               >
                 Privacy
               </Link>
+              <a
+                href="https://github.com/rohankarankot/utils4you"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:scale-105 transition-all shadow-sm group"
+                aria-label="Star Utils4You on GitHub"
+              >
+                <Github size={16} />
+                <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-wider">Star</span>
+                <Star size={14} className="fill-yellow-400 text-yellow-400 group-hover:rotate-12 transition-transform" />
+              </a>
               <ThemeToggle />
             </div>
           </nav>
