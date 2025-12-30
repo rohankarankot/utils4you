@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
 import imageCompression from "browser-image-compression";
 import Cropper, { ReactCropperElement } from "react-cropper";
 import "cropperjs/dist/cropper.css";
@@ -31,46 +32,7 @@ export default function ImageCompressor() {
         };
     }, [previewUrl]);
 
-    const handleFileDrop = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const files = e.dataTransfer.files;
-        if (files && files.length > 0) {
-            processFile(files[0]);
-        }
-    }, []);
-
-    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files.length > 0) {
-            processFile(e.target.files[0]);
-        }
-    };
-
-    const processFile = (file: File) => {
-        if (!file.type.startsWith("image/")) {
-            setError("Please upload a valid image file.");
-            return;
-        }
-        setError(null);
-        setOriginalFile(file);
-        setProcessedFile(file);
-        const url = URL.createObjectURL(file);
-        setPreviewUrl(url);
-
-        // Get initial dimensions
-        const img = new Image();
-        img.onload = () => {
-            setWidth(img.width);
-            setHeight(img.height);
-        };
-        img.src = url;
-
-        setCompressedFile(null);
-        // Auto compress
-        compressImage(file, quality, undefined, undefined);
-    };
-
-    const compressImage = async (file: File, q: number, w?: number, h?: number) => {
+    const compressImage = useCallback(async (file: File, q: number, w?: number, h?: number) => {
         setIsCompressing(true);
         try {
             const options: any = {
@@ -91,7 +53,48 @@ export default function ImageCompressor() {
         } finally {
             setIsCompressing(false);
         }
+    }, []);
+
+    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) {
+            processFile(e.target.files[0]);
+        }
     };
+
+    const processFile = useCallback((file: File) => {
+        if (!file.type.startsWith("image/")) {
+            setError("Please upload a valid image file.");
+            return;
+        }
+        setError(null);
+        setOriginalFile(file);
+        setProcessedFile(file);
+        const url = URL.createObjectURL(file);
+        setPreviewUrl(url);
+
+        // Get initial dimensions
+        if (typeof window !== 'undefined') {
+            const img = new window.Image();
+            img.onload = () => {
+                setWidth(img.width);
+                setHeight(img.height);
+            };
+            img.src = url;
+        }
+
+        setCompressedFile(null);
+        // Auto compress
+        compressImage(file, quality, undefined, undefined);
+    }, [compressImage, quality]);
+
+    const handleFileDrop = useCallback((e: React.DragEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) {
+            processFile(files[0]);
+        }
+    }, [processFile]);
 
     // Debounced re-compression
     useEffect(() => {
@@ -101,7 +104,7 @@ export default function ImageCompressor() {
             }, 500);
             return () => clearTimeout(timer);
         }
-    }, [quality, processedFile]);
+    }, [quality, processedFile, width, height, compressImage]);
 
     const handleApplyEdit = () => {
         const cropper = cropperRef.current?.cropper;
@@ -113,12 +116,14 @@ export default function ImageCompressor() {
                     setPreviewUrl(URL.createObjectURL(newFile));
 
                     // Update dims
-                    const img = new Image();
-                    img.onload = () => {
-                        setWidth(img.width);
-                        setHeight(img.height);
-                    };
-                    img.src = URL.createObjectURL(newFile);
+                    if (typeof window !== 'undefined') {
+                        const img = new window.Image();
+                        img.onload = () => {
+                            setWidth(img.width);
+                            setHeight(img.height);
+                        };
+                        img.src = URL.createObjectURL(newFile);
+                    }
 
                     setEditMode(false);
                     compressImage(newFile, quality, width, height);
@@ -303,11 +308,14 @@ export default function ImageCompressor() {
                     {/* Preview */}
                     <div className="bg-checkered rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 flex items-center justify-center min-h-[400px] bg-slate-100 dark:bg-slate-900/50">
                         {previewUrl ? (
-                            <img
+                            <Image
                                 src={previewUrl}
                                 alt="Preview"
                                 className="max-w-full max-h-[500px] object-contain"
                                 style={{ filter: isCompressing ? 'blur(2px)' : 'none', transition: 'filter 0.3s' }}
+                                width={800}
+                                height={500}
+                                unoptimized
                             />
                         ) : (
                             <div className="text-slate-400">No image selected</div>
