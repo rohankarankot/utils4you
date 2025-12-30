@@ -31,14 +31,14 @@ const JSONNode: React.FC<JSONNodeProps> = ({ data, label, isLast = true, depth =
 
     return (
       <div className="font-mono text-sm pl-4">
-        <div 
+        <div
           className="flex items-center gap-1 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors"
           onClick={toggle}
         >
           <span className={`transition-transform duration-200 text-[10px] ${isOpen ? 'rotate-90' : 'rotate-0'}`}>
             ▶
           </span>
-          {label && <span className="text-purple-600 dark:text-purple-400">"{label}": </span>}
+          {label && <span className="text-purple-600 dark:text-purple-400">&quot;{label}&quot;: </span>}
           <span className="text-[var(--muted)]">{bracketOpen}</span>
           {!isOpen && <span className="text-xs italic bg-slate-100 dark:bg-slate-800 px-1 rounded mx-1"> {keys.length} items </span>}
           {!isOpen && <span className="text-[var(--muted)]">{bracketClose}{!isLast ? "," : ""}</span>}
@@ -47,10 +47,10 @@ const JSONNode: React.FC<JSONNodeProps> = ({ data, label, isLast = true, depth =
         {isOpen && (
           <div className="border-l border-slate-200 dark:border-slate-800 ml-1">
             {keys.map((key, index) => (
-              <JSONNode 
-                key={key} 
-                data={data[key]} 
-                label={isArray ? undefined : key} 
+              <JSONNode
+                key={key}
+                data={data[key]}
+                label={isArray ? undefined : key}
                 isLast={index === keys.length - 1}
                 depth={depth + 1}
               />
@@ -69,7 +69,7 @@ const JSONNode: React.FC<JSONNodeProps> = ({ data, label, isLast = true, depth =
 
   // Primitive values
   let valDisplay: React.ReactNode;
-  if (type === "string") valDisplay = <span className="text-green-600 dark:text-green-400">"{data}"</span>;
+  if (type === "string") valDisplay = <span className="text-green-600 dark:text-green-400">&quot;{data}&quot;</span>;
   else if (type === "number") valDisplay = <span className="text-blue-600 dark:text-blue-400">{data}</span>;
   else if (type === "boolean") valDisplay = <span className="text-orange-600 dark:text-orange-400">{String(data)}</span>;
   else if (data === null) valDisplay = <span className="text-slate-400 font-bold">null</span>;
@@ -77,7 +77,7 @@ const JSONNode: React.FC<JSONNodeProps> = ({ data, label, isLast = true, depth =
 
   return (
     <div className="font-mono text-sm pl-6 py-0.5">
-      {label && <span className="text-purple-600 dark:text-purple-400">"{label}": </span>}
+      {label && <span className="text-purple-600 dark:text-purple-400">&quot;{label}&quot;: </span>}
       {valDisplay}
       {!isLast && <span className="text-[var(--muted)]">,</span>}
     </div>
@@ -149,7 +149,7 @@ export default function JSONFormatter() {
               <Button onClick={() => navigator.clipboard.writeText(JSON.stringify(parsedData, null, 2))} className="flex-1">
                 Copy Formatted
               </Button>
-              <Button 
+              <Button
                 onClick={() => {
                   const blob = new Blob([JSON.stringify(parsedData, null, 2)], { type: "application/json" });
                   const url = URL.createObjectURL(blob);
@@ -157,8 +157,8 @@ export default function JSONFormatter() {
                   a.href = url;
                   a.download = "data.json";
                   a.click();
-                }} 
-                variant="ghost" 
+                }}
+                variant="ghost"
                 className="flex-1 border"
               >
                 Download JSON
