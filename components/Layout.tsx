@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, Linkedin, Github, Globe, Twitter, Star } from "lucide-react";
 import Adsense from "./Adsense";
 import ToolsDropdown from "./ToolsDropdown";
@@ -47,7 +48,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
                 className="flex items-center gap-2 group"
               >
                 <div className="w-10 h-10 rounded-lg overflow-hidden border border-[var(--surface-border)] shadow-sm group-hover:shadow-md transition-all">
-                  <img src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" />
+                  <Image src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" width={40} height={40} />
                 </div>
                 <span className="hidden sm:block text-2xl font-black text-gradient tracking-tight">Utils4You</span>
               </Link>
@@ -139,10 +140,12 @@ export default async function Layout({ children }: { children: React.ReactNode }
             <Link href="/developer" className="group flex items-center gap-3 bg-[var(--surface)] pl-2 pr-4 py-2 rounded-full border border-[var(--surface-border)] shadow-sm hover:shadow-md hover:border-[var(--primary)] transition-all">
               <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 overflow-hidden flex items-center justify-center bg-slate-200 dark:bg-slate-800">
                 {developer?.image ? (
-                  <img
+                  <Image
                     src={urlFor(developer.image).width(64).height(64).url()}
                     alt={developer.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                    width={32}
+                    height={32}
                   />
                 ) : (
                   <span className="text-xs font-bold text-[var(--muted)]">{developer?.name?.charAt(0) || "R"}</span>

@@ -4,6 +4,7 @@ import { PortableText } from "next-sanity";
 import { Github, Linkedin, Instagram, Globe, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Developer Profile | Utils4You",
@@ -46,10 +47,13 @@ export default async function DeveloperPage() {
     <main className="min-h-screen pb-20">
       <div className="relative h-64 sm:h-80 bg-gradient-to-r from-blue-600 to-purple-600 overflow-hidden">
         {developer.coverImage && (
-          <img
+          <Image
             src={urlFor(developer.coverImage).width(1200).height(400).url()}
             alt="Cover"
             className="absolute inset-0 w-full h-full object-cover"
+            width={1200}
+            height={400}
+            priority
           />
         )}
         <div className="absolute inset-0 bg-black/30"></div>
@@ -60,10 +64,12 @@ export default async function DeveloperPage() {
           <div className="p-6 sm:p-10 flex flex-col items-center text-center">
             <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-[var(--surface)] shadow-lg overflow-hidden mb-6 bg-slate-200 dark:bg-slate-800 relative z-10">
               {developer.image ? (
-                <img
+                <Image
                   src={urlFor(developer.image).width(400).height(400).url()}
                   alt={developer.name}
                   className="w-full h-full object-cover"
+                  width={400}
+                  height={400}
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-4xl font-bold text-slate-400">

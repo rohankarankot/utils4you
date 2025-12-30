@@ -64,7 +64,7 @@ export default function SIPCalculator() {
         months,
       };
     }
-  }, [monthly, rate, tenureYears, isValid]);
+  }, [monthly, rate, tenureYears, isValid, months]);
 
   const schedule = useMemo(() => {
     if (!isValid) return [];
@@ -260,13 +260,13 @@ export default function SIPCalculator() {
                       <td className="py-2.5 text-emerald-600 dark:text-emerald-400 font-medium">₹ {formatCurrency(s.returns)}</td>
                       <td className="py-2.5 font-bold text-[var(--text)]">₹ {formatCurrency(s.balance)}</td>
                     </tr>
-                ))}
+                  ))}
                 {schedule.length === 0 && (
-                   <tr>
-                     <td colSpan={4} className="py-8 text-center text-[var(--muted)]">
-                       Enter valid investment details to view the schedule.
-                     </td>
-                   </tr>
+                  <tr>
+                    <td colSpan={4} className="py-8 text-center text-[var(--muted)]">
+                      Enter valid investment details to view the schedule.
+                    </td>
+                  </tr>
                 )}
               </tbody>
             </table>

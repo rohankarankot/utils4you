@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Tesseract from "tesseract.js";
 import Button from "./Button";
 import Card from "./Card";
@@ -145,7 +146,14 @@ export default function ImageToText() {
 
                             <div className="relative rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 min-h-[300px] flex items-center justify-center">
                                 {imageUrl && (
-                                    <img src={imageUrl} alt="Preview" className="max-w-full max-h-[400px] object-contain" />
+                                    <Image
+                                        src={imageUrl}
+                                        alt="Preview"
+                                        className="max-w-full max-h-[400px] object-contain"
+                                        width={600}
+                                        height={400}
+                                        unoptimized
+                                    />
                                 )}
                             </div>
 

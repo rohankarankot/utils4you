@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Download, X, Share } from "lucide-react";
 import Card from "./Card";
 import Button from "./Button";
@@ -78,7 +79,7 @@ export default function InstallPrompt() {
 
                     <div className="flex items-start gap-4">
                         <div className="w-12 h-12 rounded-xl border border-[var(--surface-border)] shadow-lg overflow-hidden shrink-0 bg-white">
-                            <img src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" />
+                            <Image src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" width={48} height={48} />
                         </div>
 
                         <div className="flex-1 space-y-3">
