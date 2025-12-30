@@ -229,7 +229,7 @@ export default function CodeEditor() {
                 output
               ) : (
                 <span className="text-gray-600 italic">
-                  Click "Run" to see output...
+                  Click &quot;Run&quot; to see output...
                 </span>
               )}
             </div>

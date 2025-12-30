@@ -26,7 +26,7 @@ export default function NotFound() {
                         Page Not Found
                     </h2>
                     <p className="text-lg text-[var(--muted)] max-w-md mx-auto">
-                        The tool or page you are looking for has either been moved or doesn't exist. Let's get you back on track.
+                        The tool or page you are looking for has either been moved or doesn&apos;t exist. Let&apos;s get you back on track.
                     </p>
                 </div>
 
