@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Editor, { OnMount } from "@monaco-editor/react";
 import { Play, RotateCcw, Copy, Check, Maximize2, Minimize2, Wand2, Settings } from "lucide-react";
 import Button from "./Button";
@@ -26,8 +26,29 @@ export default function CodeEditor() {
   const [isRunning, setIsRunning] = useState(false);
   const [copied, setCopied] = useState(false);
   const [fontSize, setFontSize] = useState(14);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const editorRef = useRef<any>(null);
+
+  // Detect system dark mode preference
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setIsDarkMode(isDark);
+    };
+
+    // Check initially
+    checkDarkMode();
+
+    // Watch for changes
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleEditorDidMount: OnMount = (editor, monaco) => {
     editorRef.current = editor;
@@ -103,18 +124,18 @@ export default function CodeEditor() {
 
   return (
     <div className={`flex flex-col gap-6 w-full mx-auto transition-all duration-300 ${isFullScreen
-      ? "fixed inset-0 z-50 h-[100dvh] w-[100dvw] bg-[#1e1e1e] p-4"
+      ? `fixed inset-0 z-50 h-[100dvh] w-[100dvw] ${isDarkMode ? 'bg-[#1e1e1e]' : 'bg-white'} p-4`
       : "max-w-6xl"
       }`}>
-      <Card className={`p-0 overflow-hidden border-0 shadow-xl bg-[#1e1e1e] flex flex-col ${isFullScreen ? "h-full rounded-none" : ""
+      <Card className={`p-0 overflow-hidden border-0 shadow-xl ${isDarkMode ? 'bg-[#1e1e1e]' : 'bg-white'} flex flex-col ${isFullScreen ? "h-full rounded-none" : ""
         }`}>
         {/* Toolbar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between bg-[#2d2d2d] p-3 text-gray-300 gap-3 border-b border-[#3e3e3e] shrink-0">
+        <div className={`flex flex-col sm:flex-row items-center justify-between ${isDarkMode ? 'bg-[#2d2d2d] text-gray-300 border-[#3e3e3e]' : 'bg-gray-100 text-gray-700 border-gray-300'} p-3 gap-3 border-b shrink-0`}>
           <div className="flex items-center gap-4 w-full sm:w-auto">
             <select
               value={language.id}
               onChange={(e) => handleLanguageChange(e.target.value)}
-              className="bg-[#3e3e3e] border border-[#555] rounded-lg px-3 py-1.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-48"
+              className={`${isDarkMode ? 'bg-[#3e3e3e] border-[#555] text-gray-200' : 'bg-white border-gray-300 text-gray-900'} rounded-lg px-3 py-1.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-48`}
             >
               {LANGUAGES.map((lang) => (
                 <option key={lang.id} value={lang.id}>
@@ -125,12 +146,12 @@ export default function CodeEditor() {
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto">
-            <div className="flex items-center gap-2 mr-2 border-r border-[#444] pr-2">
+            <div className={`flex items-center gap-2 mr-2 border-r ${isDarkMode ? 'border-[#444]' : 'border-gray-300'} pr-2`}>
               <Settings size={16} className="text-gray-500" />
               <select
                 value={fontSize}
                 onChange={(e) => setFontSize(Number(e.target.value))}
-                className="bg-[#3e3e3e] border border-[#555] rounded-md px-2 py-1 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className={`${isDarkMode ? 'bg-[#3e3e3e] border-[#555] text-gray-200' : 'bg-white border-gray-300 text-gray-900'} rounded-md px-2 py-1 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-blue-500`}
                 title="Font Size"
               >
                 {FONT_SIZES.map(size => (
@@ -141,7 +162,7 @@ export default function CodeEditor() {
 
             <button
               onClick={formatCode}
-              className="p-2 hover:bg-[#3e3e3e] rounded-md transition-colors text-blue-400 hover:text-blue-300"
+              className={`p-2 ${isDarkMode ? 'hover:bg-[#3e3e3e] text-blue-400 hover:text-blue-300' : 'hover:bg-gray-200 text-blue-600 hover:text-blue-700'} rounded-md transition-colors`}
               title="Prettify (Format Code)"
             >
               <Wand2 size={16} />
@@ -152,21 +173,21 @@ export default function CodeEditor() {
                 setCode(language.defaultCode);
                 setOutput("");
               }}
-              className="p-2 hover:bg-[#3e3e3e] rounded-md transition-colors"
+              className={`p-2 ${isDarkMode ? 'hover:bg-[#3e3e3e]' : 'hover:bg-gray-200'} rounded-md transition-colors`}
               title="Reset Code"
             >
               <RotateCcw size={16} />
             </button>
             <button
               onClick={copyCode}
-              className="p-2 hover:bg-[#3e3e3e] rounded-md transition-colors"
+              className={`p-2 ${isDarkMode ? 'hover:bg-[#3e3e3e]' : 'hover:bg-gray-200'} rounded-md transition-colors`}
               title="Copy Code"
             >
               {copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} />}
             </button>
             <button
               onClick={toggleFullScreen}
-              className="p-2 hover:bg-[#3e3e3e] rounded-md transition-colors"
+              className={`p-2 ${isDarkMode ? 'hover:bg-[#3e3e3e]' : 'hover:bg-gray-200'} rounded-md transition-colors`}
               title={isFullScreen ? "Exit Full Screen" : "Enter Full Screen"}
             >
               {isFullScreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
@@ -199,7 +220,7 @@ export default function CodeEditor() {
               height="100%"
               language={language.id}
               value={code}
-              theme="vs-dark"
+              theme={isDarkMode ? "vs-dark" : "light"}
               onMount={handleEditorDidMount}
               onChange={(value) => setCode(value || "")}
               options={{
@@ -220,15 +241,15 @@ export default function CodeEditor() {
           </div>
 
           {/* Output Panel */}
-          <div className="w-full lg:w-[40%] h-1/2 lg:h-full bg-[#1e1e1e] border-t lg:border-t-0 lg:border-l border-[#3e3e3e] flex flex-col min-h-0">
-            <div className="bg-[#252526] px-4 py-2 border-b border-[#3e3e3e] text-xs font-bold text-gray-400 uppercase tracking-wider shrink-0">
+          <div className={`w-full lg:w-[40%] h-1/2 lg:h-full ${isDarkMode ? 'bg-[#1e1e1e] border-[#3e3e3e]' : 'bg-gray-50 border-gray-300'} border-t lg:border-t-0 lg:border-l flex flex-col min-h-0`}>
+            <div className={`${isDarkMode ? 'bg-[#252526] text-gray-400 border-[#3e3e3e]' : 'bg-gray-200 text-gray-700 border-gray-300'} px-4 py-2 border-b text-xs font-bold uppercase tracking-wider shrink-0`}>
               Output
             </div>
-            <div className="flex-1 p-4 font-mono text-sm overflow-auto text-gray-300 whitespace-pre-wrap">
+            <div className={`flex-1 p-4 font-mono text-sm overflow-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-900'} whitespace-pre-wrap`}>
               {output ? (
                 output
               ) : (
-                <span className="text-gray-600 italic">
+                <span className={`${isDarkMode ? 'text-gray-600' : 'text-gray-400'} italic`}>
                   Click &quot;Run&quot; to see output...
                 </span>
               )}
