@@ -135,7 +135,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
             <Link href="/privacy-policy" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Privacy</Link>
             <Link href="/terms-and-conditions" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Terms</Link>
           </div>
-          <div className="flex flex-col items-center gap-3 mb-8 pb-8 border-b border-[var(--surface-border)]">
+          <div className="flex flex-col items-center gap-3 mb-8  border-[var(--surface-border)]">
             <p className="text-xs font-semibold text-[var(--muted)] uppercase tracking-widest">Developed by</p>
             <Link href="/developer" className="group flex items-center gap-3 bg-[var(--surface)] pl-2 pr-4 py-2 rounded-full border border-[var(--surface-border)] shadow-sm hover:shadow-md hover:border-[var(--primary)] transition-all">
               <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 overflow-hidden flex items-center justify-center bg-slate-200 dark:bg-slate-800">
@@ -174,6 +174,10 @@ export default async function Layout({ children }: { children: React.ReactNode }
 
           <p className="text-sm text-[var(--muted)] mb-2">
             © {new Date().getFullYear()} Utils4You.
+          </p>
+          <p className="text-sm font-medium text-[var(--primary)] mb-2 flex items-center justify-center gap-2">
+            <span>Proudly made in India</span>
+            <span>🇮🇳</span>
           </p>
           <p className="text-xs text-[var(--muted)]">
             Contact: <a href="mailto:rohan.alwayscodes@gmail.com" className="hover:text-[var(--primary)]">rohan.alwayscodes@gmail.com</a>
