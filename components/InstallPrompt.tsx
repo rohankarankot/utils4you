@@ -67,7 +67,7 @@ export default function InstallPrompt() {
     if (!showPrompt || isStandalone) return null;
 
     return (
-        <div className="fixed bottom-4 left-4 right-4 z-50 flex justify-center pointer-events-none">
+        <div className="fixed bottom-4 right-4 z-50 pointer-events-none">
             <div className="max-w-md w-full pointer-events-auto shadow-2xl animate-in slide-in-from-bottom-5 duration-500">
                 <Card className="bg-white dark:bg-slate-900 border-2 border-primary-500/50 p-4 relative overflow-hidden">
                     <button
