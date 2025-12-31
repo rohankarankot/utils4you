@@ -186,6 +186,8 @@ const ImageCompressor = dynamic(() => import("../../../../components/ImageCompre
 const QRCodeGenerator = dynamic(() => import("../../../../components/QRCodeGenerator"), { loading: () => <Loading /> });
 const ImageToText = dynamic(() => import("../../../../components/ImageToText"), { loading: () => <Loading /> });
 const PasswordGenerator = dynamic(() => import("../../../../components/PasswordGenerator"), { loading: () => <Loading /> });
+const ColorPicker = dynamic(() => import("../../../../components/ColorPicker"), { loading: () => <Loading /> });
+const IncomeTaxCalculator = dynamic(() => import("../../../../components/IncomeTaxCalculator"), { loading: () => <Loading /> });
 
 const TOOLS: Record<string, React.ReactNode> = {
   "emi-calculator": <EMICalculator />,
@@ -205,6 +207,8 @@ const TOOLS: Record<string, React.ReactNode> = {
   "qr-code-generator": <QRCodeGenerator />,
   "image-to-text": <ImageToText />,
   "password-generator": <PasswordGenerator />,
+  "color-picker": <ColorPicker />,
+  "income-tax-calculator": <IncomeTaxCalculator />,
 };
 
 function ToolRenderer({ slug }: { slug: string }) {

@@ -37,3 +37,6 @@ coverage/
 
 # Deployment
 .vercel
+
+#scripts
+scripts/
