@@ -1,7 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Linkedin, Github, Globe, Twitter, Star } from "lucide-react";
+import { Instagram, Linkedin, Github, Globe, Twitter, Star, Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "./ui/sheet";
 import Adsense from "./Adsense";
 import ToolsDropdown from "./ToolsDropdown";
 import ThemeToggle from "./ThemeToggle";
@@ -41,30 +50,93 @@ export default async function Layout({ children }: { children: React.ReactNode }
       <header className="glass sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4 md:gap-8">
+              {/* Mobile Menu Trigger */}
+              <div className="lg:hidden">
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <button className="p-2 -ml-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Open Menu">
+                      <Menu size={24} />
+                    </button>
+                  </SheetTrigger>
+                  <SheetContent side="left" className="w-[300px] sm:w-[400px] overflow-y-auto bg-white dark:bg-slate-950">
+                    <SheetHeader className="mb-6 text-left">
+                      <SheetTitle className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-lg overflow-hidden border border-[var(--surface-border)]">
+                          <Image src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" width={32} height={32} />
+                        </div>
+                        <span className="font-black text-xl tracking-tight">Utils4You</span>
+                      </SheetTitle>
+                    </SheetHeader>
+
+                    <div className="flex flex-col gap-6">
+                      <div className="flex flex-col gap-2">
+                        <h3 className="text-sm font-semibold text-[var(--muted)] uppercase tracking-wider mb-2">Menu</h3>
+                        <SheetClose asChild>
+                          <Link href="/" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">Home</Link>
+                        </SheetClose>
+                        <SheetClose asChild>
+                          <Link href="/blog" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">Blog</Link>
+                        </SheetClose>
+                        <SheetClose asChild>
+                          <Link href="/about" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">About Us</Link>
+                        </SheetClose>
+                        <SheetClose asChild>
+                          <Link href="/tools" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">All Tools</Link>
+                        </SheetClose>
+                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <h3 className="text-sm font-semibold text-[var(--muted)] uppercase tracking-wider mb-2">Legal</h3>
+                        <SheetClose asChild>
+                          <Link href="/privacy-policy" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">Privacy Policy</Link>
+                        </SheetClose>
+                        <SheetClose asChild>
+                          <Link href="/terms-and-conditions" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">Terms & Conditions</Link>
+                        </SheetClose>
+                        <SheetClose asChild>
+                          <Link href="/contact-us" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">Contact Us</Link>
+                        </SheetClose>
+                        <SheetClose asChild>
+                          <Link href="/developer" className="px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors">Developer?</Link>
+                        </SheetClose>
+                      </div>
+
+
+                    </div>
+
+                    <div className="mt-8 pt-6 border-t border-[var(--surface-border)]">
+                      <p className="text-xs text-[var(--muted)] text-center">
+                        © {new Date().getFullYear()} Utils4You.<br />Made with ❤️ in India 🇮🇳
+                      </p>
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              </div>
+
               <Link
                 href="/"
                 aria-label="Utils4You Home"
                 className="flex items-center gap-2 group"
               >
-                <div className="w-10 h-10 rounded-lg overflow-hidden border border-[var(--surface-border)] shadow-sm group-hover:shadow-md transition-all">
-                  <Image src="/logo.png" alt="Utils4You" className="w-full h-full object-cover" width={40} height={40} />
-                </div>
-                <span className="hidden sm:block text-2xl font-black text-gradient tracking-tight">Utils4You</span>
-              </Link>
-              <ToolsDropdown tools={quickLinks} />
-              <Link href="/blog" className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors">
-                Blog
-              </Link>
-              <Link href="/about" className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors">
-                About
-              </Link>
 
+                <span className="text-2xl font-black text-gradient tracking-tight">Utils4You</span>
+              </Link>
+              <div className="hidden lg:flex items-center gap-8">
+                <ToolsDropdown tools={quickLinks} />
+                <Link href="/blog" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
+                  Blog
+                </Link>
+                <Link href="/about" className="text-sm font-medium hover:text-[var(--primary)] transition-colors">
+                  About
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 sm:gap-6">
               <Link
                 href="/developer"
                 className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors"
+                title="Developer Profile"
               >
                 Dev
               </Link>
