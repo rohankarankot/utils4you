@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.utils4you.in/
-
-# Sitemaps
-Sitemap: https://www.utils4you.in/sitemap.xml
