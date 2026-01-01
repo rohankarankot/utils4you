@@ -8,6 +8,8 @@ import page from "./sanity/schemas/page";
 import developer from "./sanity/schemas/developer";
 import homepage from "./sanity/schemas/homepage";
 
+import post from "./sanity/schemas/post";
+
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "rzrp85q6";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
@@ -19,7 +21,7 @@ export default defineConfig({
   dataset,
   plugins: [deskTool()],
   schema: {
-    types: [tool, faq, siteConfig, page, developer, homepage],
+    types: [tool, faq, siteConfig, page, developer, homepage, post],
   },
 });
 // Force Sanity rebuild

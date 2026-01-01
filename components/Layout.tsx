@@ -53,6 +53,9 @@ export default async function Layout({ children }: { children: React.ReactNode }
                 <span className="hidden sm:block text-2xl font-black text-gradient tracking-tight">Utils4You</span>
               </Link>
               <ToolsDropdown tools={quickLinks} />
+              <Link href="/blog" className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors">
+                Blog
+              </Link>
               <Link href="/about" className="hidden sm:block text-sm font-medium hover:text-[var(--primary)] transition-colors">
                 About
               </Link>
@@ -128,10 +131,12 @@ export default async function Layout({ children }: { children: React.ReactNode }
 
       <footer className="mt-auto py-12 border-t border-[var(--surface-border)]">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="flex justify-center gap-6 mb-4">
+          <div className="flex justify-center gap-6 mb-4 flex-wrap">
             <Link href="/" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Home</Link>
             <Link href="/tools" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Tools</Link>
+            <Link href="/blog" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Blog</Link>
             <Link href="/about" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">About Us</Link>
+            <Link href="/contact-us" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Contact</Link>
             <Link href="/privacy-policy" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Privacy</Link>
             <Link href="/terms-and-conditions" className="text-xs font-medium text-[var(--muted)] hover:text-[var(--primary)]">Terms</Link>
           </div>
