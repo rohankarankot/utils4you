@@ -30,7 +30,13 @@ async function getDeveloperProfile() {
   return await sanityClient.fetch(query);
 }
 
-export default async function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+  sidebar
+}: {
+  children: React.ReactNode,
+  sidebar?: React.ReactNode
+}) {
   const quickLinks = await getQuickNav();
   const developer = await getDeveloperProfile();
 
@@ -168,26 +174,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
           <main className="flex-1">{children}</main>
           <aside className="hidden lg:block w-72">
             <div className="sticky top-28 space-y-6">
-              <div className="card bg-slate-50/50 dark:bg-slate-900/20 border-slate-100 dark:border-slate-800">
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Quick Navigation</p>
-                <nav className="flex flex-col gap-3">
-                  {quickLinks.map((link: any) => (
-                    <Link
-                      key={link.slug}
-                      href={`/tools/${link.slug}`}
-                      className="text-sm font-medium hover:text-blue-500 transition-colors line-clamp-1"
-                    >
-                      {link.title}
-                    </Link>
-                  ))}
-                  {quickLinks.length === 0 && (
-                    <>
-                      <Link href="/tools/emi-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">EMI Calculator India</Link>
-                      <Link href="/tools/gst-calculator" className="text-sm font-medium hover:text-blue-500 transition-colors">Online GST Calculator</Link>
-                    </>
-                  )}
-                </nav>
-              </div>
+              {sidebar}
 
               <div className="card bg-indigo-50/30 border-indigo-100/50 dark:bg-indigo-950/10 dark:border-indigo-900/20">
                 <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">Featured</p>

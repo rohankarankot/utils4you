@@ -3,8 +3,10 @@ import Layout from "../../components/Layout";
 
 export default function SiteLayout({
   children,
+  sidebar,
 }: {
   children: React.ReactNode;
+  sidebar: React.ReactNode;
 }) {
-  return <Layout>{children}</Layout>;
+  return <Layout sidebar={sidebar}>{children}</Layout>;
 }
