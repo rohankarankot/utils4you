@@ -4,6 +4,7 @@ import Adsense from "../../../../components/Adsense";
 import { faqJsonLd } from "./faqJsonLd";
 import { breadcrumbJsonLd } from "./breadcrumbJsonLd";
 import { sanityClient } from "../../../../lib/sanityClient";
+import { PortableText } from "@portabletext/react";
 import SocialShare from "../../../../components/SocialShare";
 import RelatedTools from "../../../../components/RelatedTools";
 import Breadcrumbs from "../../../../components/Breadcrumbs";
@@ -107,15 +108,9 @@ export default async function ToolPage({
       <ToolRenderer slug={slug} />
 
       {tool.longDescription && tool.longDescription.length > 0 && (
-        <section className="prose dark:prose-invert max-w-none mt-12">
-          <div>
-            {(tool.longDescription || []).map((b: any, i: number) => (
-              <div key={i}>
-                {b._type === 'block' ? (
-                  <p>{b.children?.map((c: any) => c.text).join("")}</p>
-                ) : null}
-              </div>
-            ))}
+        <section className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
+          <div className="prose dark:prose-invert max-w-none prose-slate prose-headings:scroll-mt-20 prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:leading-relaxed prose-li:my-1">
+            <PortableText value={tool.longDescription} />
           </div>
         </section>
       )}
