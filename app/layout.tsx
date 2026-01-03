@@ -1,6 +1,7 @@
 import React from "react";
 import Script from "next/script";
 import { Inter, Outfit } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Layout from "../components/Layout";
 import InstallPrompt from "../components/InstallPrompt";
@@ -65,6 +66,7 @@ export default async function RootLayout({
         <GlobalSchema />
         <InstallPrompt />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
