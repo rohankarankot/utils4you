@@ -62,10 +62,19 @@ export default function ImageCompressor() {
     };
 
     const processFile = useCallback((file: File) => {
+        // Validate file type
         if (!file.type.startsWith("image/")) {
             setError("Please upload a valid image file.");
             return;
         }
+
+        // Validate file size (10MB max)
+        const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+        if (file.size > MAX_FILE_SIZE) {
+            setError("File size must be less than 10MB. Please choose a smaller image.");
+            return;
+        }
+
         setError(null);
         setOriginalFile(file);
         setProcessedFile(file);
@@ -134,6 +143,21 @@ export default function ImageCompressor() {
 
     const handleDimensionChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'w' | 'h') => {
         const val = parseInt(e.target.value) || 0;
+        const MAX_DIM = 10000;
+
+        // Validate bounds
+        if (val < 0) {
+            setError("Dimension cannot be negative.");
+            return;
+        }
+
+        if (val > MAX_DIM) {
+            setError(`Dimension must be ${MAX_DIM}px or less.`);
+            return;
+        }
+
+        setError(null);
+
         if (type === 'w') {
             setWidth(val);
         } else {

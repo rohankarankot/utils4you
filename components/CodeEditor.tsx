@@ -76,6 +76,10 @@ export default function CodeEditor() {
     setIsRunning(true);
     setOutput("");
 
+    // Create abort controller for timeout
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
     try {
       const response = await fetch("https://emkc.org/api/v2/piston/execute", {
         method: "POST",
@@ -91,18 +95,35 @@ export default function CodeEditor() {
             },
           ],
         }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeout);
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.message || `API error: ${response.status}`);
+      }
 
       const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.message || "Failed to execute code");
+      // Validate response structure
+      if (!data.run) {
+        throw new Error("Invalid API response structure");
       }
 
       const { run } = data;
       setOutput(run.output || "No output returned.");
     } catch (error: any) {
-      setOutput(`Error: ${error.message || "Something went wrong."}`);
+      clearTimeout(timeout);
+
+      if (error.name === 'AbortError') {
+        setOutput(`Error: Request timeout - the code execution took too long (>10s).\nPlease try again or simplify your code.`);
+      } else if (error.message.includes('Failed to fetch')) {
+        setOutput(`Error: Network error - please check your internet connection and try again.`);
+      } else {
+        setOutput(`Error: ${error.message || "Something went wrong while executing the code."}`);
+      }
     } finally {
       setIsRunning(false);
     }

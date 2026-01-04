@@ -10,7 +10,7 @@ import homepage from "./sanity/schemas/homepage";
 
 import post from "./sanity/schemas/post";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "rzrp85q6";
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
 export default defineConfig({

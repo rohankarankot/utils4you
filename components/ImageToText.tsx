@@ -38,10 +38,19 @@ export default function ImageToText() {
     };
 
     const processFile = (file: File) => {
+        // Validate file type
         if (!file.type.startsWith("image/")) {
-            alert("Please upload a valid image file.");
+            setStatus("Please upload a valid image file.");
             return;
         }
+
+        // Validate file size (10MB max)
+        const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+        if (file.size > MAX_FILE_SIZE) {
+            setStatus("File size must be less than 10MB. Please choose a smaller image.");
+            return;
+        }
+
         setImageFile(file);
         const url = URL.createObjectURL(file);
         setImageUrl(url);
