@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Adsense from "../../../../components/Adsense";
 import { faqJsonLd } from "./faqJsonLd";
 import { breadcrumbJsonLd } from "./breadcrumbJsonLd";
@@ -73,12 +74,9 @@ export default async function ToolPage({
   const slug = params.slug;
   const tool = await getToolBySlug(slug);
 
-  if (!tool)
-    return (
-      <main>
-        <h1>Tool not found</h1>
-      </main>
-    );
+  if (!tool) {
+    notFound();
+  }
 
   const heroTitle = tool.heroTitle || tool.title;
   const heroSubtitle = tool.heroSubtitle || tool.shortDescription;
@@ -157,7 +155,6 @@ export default async function ToolPage({
 
 import dynamic from "next/dynamic";
 import { Loader2 } from "lucide-react";
-
 const Loading = () => (
   <div className="flex items-center justify-center p-12">
     <Loader2 className="animate-spin text-[var(--primary)]" size={32} />
