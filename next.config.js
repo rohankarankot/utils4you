@@ -44,7 +44,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https://cdn.sanity.io https://pagead2.googlesyndication.com https://*.googleusercontent.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://cdn.sanity.io https://emkc.org/api https://pagead2.googlesyndication.com",
+              "connect-src 'self' https://cdn.sanity.io https://*.api.sanity.io https://emkc.org/api https://pagead2.googlesyndication.com",
               "frame-src https://pagead2.googlesyndication.com",
               "frame-ancestors 'none'",
             ].join("; "),
