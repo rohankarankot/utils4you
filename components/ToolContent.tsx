@@ -1,8 +1,9 @@
 import React from "react";
+import { PortableText } from "@portabletext/react";
 
 export interface FAQItem {
     question: string;
-    answer: string;
+    answer: any; // Can be string or PortableText array
 }
 
 export interface ExampleItem {
@@ -29,6 +30,18 @@ export default function ToolContent({
     benefits,
     faqs,
 }: ToolContentProps) {
+    // Helper to get string from PortableText for JSON-LD
+    const getPlainText = (blocks: any) => {
+        if (typeof blocks === "string") return blocks;
+        if (!Array.isArray(blocks)) return "";
+        return blocks
+            .map((block) => {
+                if (block._type !== "block" || !block.children) return "";
+                return block.children.map((child: any) => child.text).join("");
+            })
+            .join("\n");
+    };
+
     // Generate FAQ Schema JSON-LD
     const faqSchema = {
         "@context": "https://schema.org",
@@ -38,7 +51,7 @@ export default function ToolContent({
             name: faq.question,
             acceptedAnswer: {
                 "@type": "Answer",
-                text: faq.answer,
+                text: getPlainText(faq.answer),
             },
         })),
     };
@@ -144,7 +157,11 @@ export default function ToolContent({
                                 </span>
                             </summary>
                             <div className="mt-3 text-[14px] sm:text-[15px] text-[var(--muted)] leading-relaxed border-t border-slate-200 dark:border-slate-700/50 pt-3">
-                                <p>{faq.answer}</p>
+                                {typeof faq.answer === "string" ? (
+                                    <p>{faq.answer}</p>
+                                ) : (
+                                    <PortableText value={faq.answer} />
+                                )}
                             </div>
                         </details>
                     ))}
