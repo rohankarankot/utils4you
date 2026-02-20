@@ -55,6 +55,124 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* SEO & Content Section */}
+      <section className="mb-16 prose dark:prose-invert max-w-none">
+        <h2 className="text-3xl font-bold mb-4">Your One-Stop Platform for Free Online Tools</h2>
+        <p className="text-lg leading-relaxed text-[var(--muted)] mb-4">
+          Welcome to <strong>Utils4You</strong>, the ultimate collection of free online tools designed to make your daily tasks simpler, faster, and more efficient. Whether you are a student computing complex formulas, a finance professional analyzing investments, a developer formatting code, or a blogger optimizing images, we have something for everyone. Our platform eliminates the need for downloading bulky software by providing instant access directly from your browser.
+        </p>
+        {/* Features Section */}
+        {homepage.features && homepage.features.length > 0 && (
+          <section className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+            {homepage.features.map((feature: any, index: number) => (
+              <div key={index} className="card group">
+                <div className={`w-12 h-12 rounded-xl ${colorSchemes[feature.colorScheme] || colorSchemes.indigo} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={iconMap[feature.icon] || iconMap.text}></path>
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold mb-3">{feature.title}</h2>
+                <p className="text-[var(--muted)] leading-relaxed mb-6">
+                  {feature.description}
+                </p>
+                <div className="mt-auto">
+                  <Link
+                    href={feature.link}
+                    className="btn btn-primary w-full sm:w-auto"
+                  >
+                    Explore Tools
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </section>
+        )}
+        <h3 className="text-2xl font-semibold mt-8 mb-4">Who Can Benefit from Utils4You?</h3>
+        <ul className="list-disc pl-6 mb-4 text-[var(--muted)]">
+          <li><strong>Students & Educators:</strong> Use our <em>online calculators</em> to breeze through math assignments, check your BMI, or quickly calculate your age down to the day.</li>
+          <li><strong>Bloggers & Content Creators:</strong> Leverage our <em>text tools</em> to count words, convert text cases, generate SEO-friendly slugs, and compress images for faster page loads.</li>
+          <li><strong>Finance Professionals:</strong> Access our financial tools like the EMI Calculator, GST Calculator, and SIP Calculator to plan investments and manage taxes effectively.</li>
+          <li><strong>Developers & IT Users:</strong> Utilize our code editors, JSON formatters, HTML minifiers, and password generators to streamline your workflow.</li>
+        </ul>
+
+        <h3 className="text-2xl font-semibold mt-8 mb-4">Explore Our Major Categories</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-[var(--muted)]">
+          <div>
+            <h4 className="font-semibold text-slate-800 dark:text-slate-200"><Link href="/tools#financial-calculators" className="text-[var(--primary)] hover:underline">Financial Calculators</Link></h4>
+            <p className="text-sm">Plan your finances with precision using our EMI, SIP, and Income Tax tools.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-slate-800 dark:text-slate-200"><Link href="/tools#text-tools" className="text-[var(--primary)] hover:underline">Text Tools</Link></h4>
+            <p className="text-sm">Format, count, and convert your text effortlessly for blogs, essays, and coding.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-slate-800 dark:text-slate-200"><Link href="/tools#developer-tools" className="text-[var(--primary)] hover:underline">Developer Tools</Link></h4>
+            <p className="text-sm">Minify HTML, format JSON, and generate secure passwords instantly.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-slate-800 dark:text-slate-200"><Link href="/tools#image-tools" className="text-[var(--primary)] hover:underline">Image & Media Tools</Link></h4>
+            <p className="text-sm">Compress images without losing quality and extract text from images in seconds.</p>
+          </div>
+        </div>
+
+        <h3 className="text-2xl font-semibold mt-8 mb-4">Benefits of Using Online Utilities</h3>
+        <p className="text-lg leading-relaxed text-[var(--muted)] mb-8">
+          The primary advantage of using a web-based utility platform like Utils4You is convenience. There are no subscriptions, no hidden fees, and no installations required. Because our tools run directly in your web browser, they are inherently secure and cross-platform compatible. From calculating your next EMI payment on your mobile phone to formatting a massive JSON file on your desktop, Utils4You adapts to your environment seamlessly while keeping your data private.
+        </p>
+      </section>
+
+      {/* Frequently Asked Questions */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+        <div className="space-y-4 max-w-4xl mx-auto">
+          <details className="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 cursor-pointer bg-white dark:bg-slate-900 shadow-sm">
+            <summary className="font-semibold list-none flex justify-between items-center text-lg">
+              Are all the tools on Utils4You completely free to use?
+              <span className="group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <div className="mt-3 text-[var(--muted)] leading-relaxed">
+              <p>Yes, absolutely! Every tool, calculator, and converter available on Utils4You is 100% free with no hidden charges or subscription fees.</p>
+            </div>
+          </details>
+          <details className="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 cursor-pointer bg-white dark:bg-slate-900 shadow-sm">
+            <summary className="font-semibold list-none flex justify-between items-center text-lg">
+              Do I need to download any software or app?
+              <span className="group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <div className="mt-3 text-[var(--muted)] leading-relaxed">
+              <p>No downloads are required. All our utilities are web-based, meaning they work instantly right from your browser on any device.</p>
+            </div>
+          </details>
+          <details className="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 cursor-pointer bg-white dark:bg-slate-900 shadow-sm">
+            <summary className="font-semibold list-none flex justify-between items-center text-lg">
+              Is my data secure when using your tools?
+              <span className="group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <div className="mt-3 text-[var(--muted)] leading-relaxed">
+              <p>Yes. The vast majority of our tools execute processes locally in your browser. This means your text, codes, and images are not uploaded to our servers, ensuring total privacy.</p>
+            </div>
+          </details>
+          <details className="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 cursor-pointer bg-white dark:bg-slate-900 shadow-sm">
+            <summary className="font-semibold list-none flex justify-between items-center text-lg">
+              How accurate are the financial calculators?
+              <span className="group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <div className="mt-3 text-[var(--muted)] leading-relaxed">
+              <p>Our financial tools use standard mathematical formulas used worldwide by financial institutions to provide highly accurate estimates for EMIs, SIPs, and taxes.</p>
+            </div>
+          </details>
+          <details className="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 cursor-pointer bg-white dark:bg-slate-900 shadow-sm">
+            <summary className="font-semibold list-none flex justify-between items-center text-lg">
+              What should I do if a tool is not working?
+              <span className="group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <div className="mt-3 text-[var(--muted)] leading-relaxed">
+              <p>First, try clearing your browser cache or switching browsers. If the issue persists, please feel free to reach out to us via the Contact Us page so we can fix it immediately.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
       {/* Stats Section */}
       {homepage.stats && homepage.stats.length > 0 && (
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
@@ -83,32 +201,7 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Features Section */}
-      {homepage.features && homepage.features.length > 0 && (
-        <section className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-          {homepage.features.map((feature: any, index: number) => (
-            <div key={index} className="card group">
-              <div className={`w-12 h-12 rounded-xl ${colorSchemes[feature.colorScheme] || colorSchemes.indigo} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={iconMap[feature.icon] || iconMap.text}></path>
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold mb-3">{feature.title}</h2>
-              <p className="text-[var(--muted)] leading-relaxed mb-6">
-                {feature.description}
-              </p>
-              <div className="mt-auto">
-                <Link
-                  href={feature.link}
-                  className="btn btn-primary w-full sm:w-auto"
-                >
-                  Explore Tools
-                </Link>
-              </div>
-            </div>
-          ))}
-        </section>
-      )}
+
 
       {/* CTA Section */}
       {homepage.cta && (

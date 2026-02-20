@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Fetch Legal Pages (since we store them in Sanity as 'page', we can check their updated time)
     // But the routes are hardcoded in Next.js structure.
-    const legalPages = ["about", "privacy-policy", "terms-and-conditions", "contact-us"];
+    const legalPages = ["about", "privacy-policy", "terms-and-conditions", "contact-us", "author", "disclaimer"];
     const legalUrls = legalPages.map((slug) => ({
         url: `${baseUrl}/${slug}`,
         lastModified: new Date().toISOString(),

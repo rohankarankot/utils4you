@@ -7,6 +7,7 @@ import siteConfig from "./sanity/schemas/siteConfig";
 import page from "./sanity/schemas/page";
 import developer from "./sanity/schemas/developer";
 import homepage from "./sanity/schemas/homepage";
+import example from "./sanity/schemas/example";
 
 import post from "./sanity/schemas/post";
 
@@ -21,7 +22,7 @@ export default defineConfig({
   dataset,
   plugins: [deskTool()],
   schema: {
-    types: [tool, faq, siteConfig, page, developer, homepage, post],
+    types: [tool, faq, siteConfig, page, developer, homepage, post, example],
   },
 });
 // Force Sanity rebuild

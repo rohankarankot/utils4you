@@ -5,8 +5,12 @@ import Breadcrumbs from "../../../components/Breadcrumbs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Blog | Utils4You",
-    description: "Latest guides, tutorials, and updates from Utils4You.",
+    title: "Blog & Guides | Utils4You",
+    description: "Latest guides, tutorials, and updates from Utils4You to help you get the most out of our productivity tools.",
+    keywords: ["utils4you blog", "productivity tips", "online tools guides", "how-to tutorials"],
+    alternates: {
+        canonical: "https://www.utils4you.in/blog",
+    },
 };
 
 export const revalidate = 0;

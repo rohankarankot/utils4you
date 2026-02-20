@@ -6,6 +6,10 @@ import Image from "next/image";
 import Breadcrumbs from "../../../../components/Breadcrumbs";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import TableOfContents from "../../../../components/TableOfContents";
+import AuthorBox from "../../../../components/AuthorBox";
+import SocialShare from "../../../../components/SocialShare";
+import RelatedBlogPosts from "../../../../components/RelatedBlogPosts";
 
 export const revalidate = 3600; // ISR for blogs
 
@@ -32,15 +36,40 @@ export async function generateMetadata({
     return {
         title: post.seo?.title || post.title,
         description: post.seo?.description || post.excerpt,
+        keywords: post.seo?.keywords || [],
+        alternates: {
+            canonical: `https://www.utils4you.in/blog/${params.slug}`,
+        },
         openGraph: {
             title: post.seo?.title || post.title,
             description: post.seo?.description || post.excerpt,
             images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
+            type: 'article',
+            publishedTime: post.publishedAt,
+            authors: post.authorName ? [post.authorName] : ["Utils4You Team"],
         },
+        twitter: {
+            card: "summary_large_image",
+            title: post.seo?.title || post.title,
+            description: post.seo?.description || post.excerpt,
+            images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(600).url()] : [],
+        }
     };
 }
 
 const components = {
+    block: {
+        h2: ({ children }: any) => {
+            const text = React.Children.toArray(children).join("");
+            const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            return <h2 id={id} className="scroll-mt-20 font-bold text-2xl mt-12 mb-6">{children}</h2>;
+        },
+        h3: ({ children }: any) => {
+            const text = React.Children.toArray(children).join("");
+            const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            return <h3 id={id} className="scroll-mt-20 font-bold text-xl mt-8 mb-4">{children}</h3>;
+        },
+    },
     types: {
         image: ({ value }: any) => {
             if (!value?.asset?._ref) {
@@ -128,21 +157,48 @@ export default async function BlogPost({
                     </div>
                 )}
 
-                <div className="prose dark:prose-invert max-w-none prose-lg prose-blue">
-                    {/* Table of Contents? Maybe later if requested. For now just content */}
+                <div className="prose dark:prose-invert max-w-none prose-lg prose-blue pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <TableOfContents blocks={post.body} />
                     <PortableText value={post.body} components={components} />
                 </div>
 
-                <section className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800">
-                    <div className="flex items-center gap-4 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-xl">
-                        <div className="flex-1">
-                            <h3 className="font-bold mb-1">Written by {post.authorName}</h3>
-                            <p className="text-sm text-[var(--muted)]">
-                                Passionate about making productivity tools accessible to everyone.
-                            </p>
-                        </div>
-                    </div>
-                </section>
+                <AuthorBox authorName={post.authorName} />
+
+                <div className="mt-12">
+                    <SocialShare
+                        title={`${post.title} | Utils4You`}
+                        url={`https://www.utils4you.in/blog/${post.slug.current}`}
+                    />
+                </div>
+
+                <RelatedBlogPosts currentSlug={post.slug.current} />
+
+                {/* Article JSON-LD */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "BlogPosting",
+                            "headline": post.title,
+                            "image": post.mainImage ? urlFor(post.mainImage).url() : "https://www.utils4you.in/logo.png",
+                            "datePublished": post.publishedAt,
+                            "author": {
+                                "@type": "Person",
+                                "name": post.authorName || "Utils4You Team"
+                            },
+                            "publisher": {
+                                "@type": "Organization",
+                                "name": "Utils4You",
+                                "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://www.utils4you.in/logo.png"
+                                }
+                            },
+                            "description": post.excerpt
+                        })
+                    }}
+                />
             </article>
         </main>
     );

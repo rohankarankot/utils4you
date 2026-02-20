@@ -51,27 +51,27 @@ export default function GSTCalculator() {
 
   const pieData = splitEnabled
     ? {
-        labels: ["Base", "CGST", "SGST"],
-        datasets: [
-          {
-            data: [breakdown.base, split?.cgst ?? 0, split?.sgst ?? 0],
-            backgroundColor: ["#4f46e5", "#10b981", "#06b6d4"],
-            hoverBackgroundColor: ["#6366f1", "#34d399", "#38bdf8"],
-            borderWidth: 0,
-          },
-        ],
-      }
+      labels: ["Base", "CGST", "SGST"],
+      datasets: [
+        {
+          data: [breakdown.base, split?.cgst ?? 0, split?.sgst ?? 0],
+          backgroundColor: ["#4f46e5", "#10b981", "#06b6d4"],
+          hoverBackgroundColor: ["#6366f1", "#34d399", "#38bdf8"],
+          borderWidth: 0,
+        },
+      ],
+    }
     : {
-        labels: ["Base", "Tax"],
-        datasets: [
-          {
-            data: [breakdown.base, breakdown.tax],
-            backgroundColor: ["#4f46e5", "#10b981"],
-            hoverBackgroundColor: ["#6366f1", "#34d399"],
-            borderWidth: 0,
-          },
-        ],
-      };
+      labels: ["Base", "Tax"],
+      datasets: [
+        {
+          data: [breakdown.base, breakdown.tax],
+          backgroundColor: ["#4f46e5", "#10b981"],
+          hoverBackgroundColor: ["#6366f1", "#34d399"],
+          borderWidth: 0,
+        },
+      ],
+    };
 
   return (
     <Card>

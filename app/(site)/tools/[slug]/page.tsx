@@ -9,6 +9,7 @@ import { PortableText } from "@portabletext/react";
 import SocialShare from "../../../../components/SocialShare";
 import RelatedTools from "../../../../components/RelatedTools";
 import Breadcrumbs from "../../../../components/Breadcrumbs";
+import ToolContent from "../../../../components/ToolContent";
 
 const CATEGORY_LABELS: Record<string, string> = {
   "text-tools": "Text Tools",
@@ -31,7 +32,14 @@ export async function generateStaticParams() {
 async function getToolBySlug(slug: string) {
   const query = `*[_type == "tool" && slug.current == $slug][0] {
     ...,
-    "ogImage": seo.ogImage.asset->url
+    "ogImage": seo.ogImage.asset->url,
+    toolName,
+    toolDescription,
+    howToUse,
+    formula,
+    examples,
+    benefits,
+    faqs
   }`;
   const tool = await sanityClient.fetch(query, { slug });
   return tool;
@@ -105,6 +113,19 @@ export default async function ToolPage({
       {/* Tool Component Placeholder - will be mapped below */}
       <ToolRenderer slug={slug} />
 
+      {/* Render SEO ToolContent dynamically from Sanity if the fields exist */}
+      {tool.toolName && tool.toolDescription && (
+        <ToolContent
+          toolName={tool.toolName}
+          toolDescription={tool.toolDescription}
+          howToUse={tool.howToUse || []}
+          formula={tool.formula}
+          examples={tool.examples || []}
+          benefits={tool.benefits || []}
+          faqs={tool.faqs || []}
+        />
+      )}
+
       {tool.longDescription && tool.longDescription.length > 0 && (
         <section className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
           <div className="prose dark:prose-invert max-w-none prose-slate prose-headings:scroll-mt-20 prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:leading-relaxed prose-li:my-1">
@@ -113,7 +134,8 @@ export default async function ToolPage({
         </section>
       )}
 
-      {tool.faqs && tool.faqs.length > 0 && (
+      {/* Only render old legacy faqs accordion if ToolContent wasn't rendered. ToolContent has its own accordion */}
+      {(!tool.toolName || !tool.toolDescription) && tool.faqs && tool.faqs.length > 0 && (
         <section className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">
@@ -134,10 +156,14 @@ export default async function ToolPage({
         </section>
       )}
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(tool)) }}
-      />
+      {/* Avoid duplicating FAQ JSON-LD if ToolContent is already rendering it */}
+      {(!tool.toolName || !tool.toolDescription) && tool.faqs && tool.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(tool)) }}
+        />
+      )}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(tool)) }}

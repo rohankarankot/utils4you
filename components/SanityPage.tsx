@@ -1,6 +1,5 @@
 import React from "react";
 import { PortableText } from "@portabletext/react";
-import * as LucideIcons from "lucide-react";
 import { Lock, ShieldCheck, EyeOff, Cookie, Shield, Zap, Heart, CheckCircle, Scale, AlertTriangle, FileText, Globe } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -29,17 +28,17 @@ const components = {
   },
   types: {
     contactSection: ({ value }: any) => (
-       <section className="bg-slate-900 text-white p-8 rounded-3xl mt-12">
-          <h2 className="text-2xl font-bold text-white mt-0">{value.title}</h2>
-          <p className="text-slate-300">
-            {value.content}
-          </p>
-          {value.email && (
-             <a href={`mailto:${value.email}`} className="text-blue-400 hover:text-blue-300 underline underline-offset-4 mt-4 inline-block">
-                {value.email}
-             </a>
-          )}
-        </section>
+      <section className="bg-slate-900 text-white p-8 rounded-3xl mt-12">
+        <h2 className="text-2xl font-bold text-white mt-0">{value.title}</h2>
+        <p className="text-slate-300">
+          {value.content}
+        </p>
+        {value.email && (
+          <a href={`mailto:${value.email}`} className="text-blue-400 hover:text-blue-300 underline underline-offset-4 mt-4 inline-block">
+            {value.email}
+          </a>
+        )}
+      </section>
     )
   }
 };
@@ -84,15 +83,15 @@ export default function SanityPage({ data }: SanityPageProps) {
 
       {footer && (
         <footer className="text-center bg-slate-900 dark:bg-blue-600 rounded-3xl p-12 text-white overflow-hidden relative mt-20">
-            <div className="relative z-10">
+          <div className="relative z-10">
             <h2 className="text-3xl font-bold mb-4">{footer.title}</h2>
             <p className="text-blue-100 mb-8 max-w-md mx-auto">{footer.description}</p>
             <a href={footer.buttonLink || "/tools"} className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-slate-900 transition-all hover:bg-slate-100 hover:scale-105 active:scale-95 shadow-lg">
-                {footer.buttonText || "Explore All Tools"}
+              {footer.buttonText || "Explore All Tools"}
             </a>
-            </div>
-            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl" />
+          </div>
+          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl" />
         </footer>
       )}
     </main>

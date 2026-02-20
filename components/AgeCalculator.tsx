@@ -41,7 +41,7 @@ export default function AgeCalculator() {
   }, [birth]);
 
   const ageData = useMemo(() => (parsed ? calculateAge(parsed) : null), [parsed]);
-  
+
   const ageInSeconds = useMemo(() => {
     if (!parsed) return null;
     return Math.floor((now.getTime() - parsed.getTime()) / 1000);
@@ -56,7 +56,7 @@ export default function AgeCalculator() {
   const predictedLifeSpan = useMemo(() => {
     let base = gender === "male" ? 76 : 81;
     if (smoking === "yes") base -= 10;
-    
+
     if (exercise === "regularly") base += 5;
     else if (exercise === "occasionally") base += 2;
 
@@ -217,7 +217,7 @@ export default function AgeCalculator() {
                 <option value="healthy">Healthy (Whole foods)</option>
               </select>
             </div>
-            
+
             <div className="flex flex-col gap-3 md:col-span-2">
               <label className="text-sm font-semibold">Stress Level</label>
               <select
@@ -232,8 +232,8 @@ export default function AgeCalculator() {
             </div>
           </div>
 
-          <Button 
-            onClick={() => setShowPrediction(true)} 
+          <Button
+            onClick={() => setShowPrediction(true)}
             className="w-full py-4 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg transition-transform active:scale-95"
           >
             Predict My Life Span

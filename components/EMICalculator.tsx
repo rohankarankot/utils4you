@@ -12,6 +12,7 @@ import EMIChart from "./EMIChart";
 const presets = {
   car: { label: "Car Loan", rate: 9.5, tenureYears: 5 },
   personal: { label: "Personal Loan", rate: 13.0, tenureYears: 3 },
+
   education: { label: "Education Loan", rate: 10.0, tenureYears: 5 },
   home: { label: "Home Loan", rate: 8.5, tenureYears: 20 },
 };
@@ -227,7 +228,7 @@ export default function EMICalculator() {
               </div>
             </div>
           </div>
-          
+
           <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
             <table className="w-full text-xs sm:text-sm min-w-[500px]">
               <thead className="text-left text-[var(--muted)] border-b dark:border-slate-800">
@@ -250,13 +251,13 @@ export default function EMICalculator() {
                       <td className="py-2.5 text-rose-600 dark:text-rose-400">₹ {formatCurrency(s.interestComponent)}</td>
                       <td className="py-2.5 text-[var(--muted)]">₹ {formatCurrency(s.balance)}</td>
                     </tr>
-                ))}
+                  ))}
                 {schedule.length === 0 && (
-                   <tr>
-                     <td colSpan={5} className="py-8 text-center text-[var(--muted)]">
-                       Enter valid loan details to view the schedule.
-                     </td>
-                   </tr>
+                  <tr>
+                    <td colSpan={5} className="py-8 text-center text-[var(--muted)]">
+                      Enter valid loan details to view the schedule.
+                    </td>
+                  </tr>
                 )}
               </tbody>
             </table>
